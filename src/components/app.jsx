@@ -1,11 +1,17 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {Main} from './main.jsx';
 
+
 export const App = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const {cardsCount} = props;
+  const {cardNames} = props;
 
   return <Main
-    cardsCount={cardsCount}
+    cardNames={cardNames}
   />;
+};
+
+
+App.propTypes = {
+  cardNames: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 
 export const Main = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const {cardsCount} = props;
+  const {cardNames} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -72,7 +72,7 @@ export const Main = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{cardsCount} places to stay in Amsterdam</b>
+              <b className="places__found">{cardNames.length} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -95,8 +95,8 @@ export const Main = (props) => {
                 </select> */}
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {new Array(cardsCount).fill(``).map((it, i) => {
-                  return <article className="cities__place-card place-card" key={it + i}>
+                {cardNames.map((name, i) => {
+                  return <article className="cities__place-card place-card" key={name + i}>
                     <div className="place-card__mark">
                       <span>Premium</span>
                     </div>
@@ -125,7 +125,7 @@ export const Main = (props) => {
                         </div>
                       </div>
                       <h2 className="place-card__name">
-                        <a href="#">Beautiful &amp; luxurious apartment at great location</a>
+                        <a href="#">{name}</a>
                       </h2>
                       <p className="place-card__type">Apartment</p>
                     </div>
@@ -141,4 +141,9 @@ export const Main = (props) => {
       </main>
     </div>
   );
+};
+
+
+Main.propTypes = {
+  cardNames: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
