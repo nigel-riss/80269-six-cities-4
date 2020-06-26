@@ -314,6 +314,7 @@ exports[`Main renders correctly 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[MockFunction]}
                   >
                     Beautiful & luxurious apartment at great location
                   </a>
@@ -415,6 +416,7 @@ exports[`Main renders correctly 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[MockFunction]}
                   >
                     Wood and stone place
                   </a>
@@ -516,6 +518,7 @@ exports[`Main renders correctly 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[MockFunction]}
                   >
                     It's an old house located out in the hills
                   </a>
@@ -617,6 +620,7 @@ exports[`Main renders correctly 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[MockFunction]}
                   >
                     An infamous murder happened here awhile back.
                   </a>
@@ -718,6 +722,7 @@ exports[`Main renders correctly 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[MockFunction]}
                   >
                     This small house looks like an old castle
                   </a>

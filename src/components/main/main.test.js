@@ -13,9 +13,12 @@ const CARD_NAMES = [
 
 
 it(`Main renders correctly`, () => {
+  const handleCardTitleClick = jest.fn();
+
   const tree = renderer
     .create(<Main
       cardNames={CARD_NAMES}
+      onCardTitleClick={handleCardTitleClick}
     />)
     .toJSON();
 
