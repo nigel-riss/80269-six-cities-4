@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Main} from './main.jsx';
+import {Main} from '../main/main.jsx';
+
+
+const handleCardTitleClick = () => {};
 
 
 export const App = (props) => {
@@ -8,6 +11,7 @@ export const App = (props) => {
 
   return <Main
     cardNames={cardNames}
+    onCardTitleClick={handleCardTitleClick}
   />;
 };
 

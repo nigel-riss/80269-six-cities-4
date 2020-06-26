@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {App} from './components/app/app.jsx';
+import renderer from 'react-test-renderer';
+import {App} from './app.jsx';
 
 
 const CARD_NAMES = [
@@ -12,13 +12,12 @@ const CARD_NAMES = [
 ];
 
 
-const init = () => {
-  ReactDOM.render(
-      <App
-        cardNames={CARD_NAMES}
-      />,
-      document.querySelector(`#root`)
-  );
-};
+it(`App renders correctly`, () => {
+  const tree = renderer
+    .create(<App
+      cardNames={CARD_NAMES}
+    />)
+    .toJSON();
 
-init();
+  expect(tree).toMatchSnapshot();
+});

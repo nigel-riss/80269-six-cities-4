@@ -3,7 +3,7 @@ import React from 'react';
 
 
 export const Main = (props) => {
-  const {cardNames} = props;
+  const {cardNames, onCardTitleClick} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -125,7 +125,12 @@ export const Main = (props) => {
                         </div>
                       </div>
                       <h2 className="place-card__name">
-                        <a href="#">{name}</a>
+                        <a
+                          href="#"
+                          onClick={onCardTitleClick}
+                        >
+                          {name}
+                        </a>
                       </h2>
                       <p className="place-card__type">Apartment</p>
                     </div>
@@ -146,4 +151,5 @@ export const Main = (props) => {
 
 Main.propTypes = {
   cardNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onCardTitleClick: PropTypes.func.isRequired,
 };
