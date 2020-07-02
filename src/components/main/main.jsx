@@ -4,7 +4,7 @@ import PlaceList from '../place-list/place-list.jsx';
 
 
 export const Main = (props) => {
-  const {cardNames, onCardTitleClick} = props;
+  const {offers, onCardTitleClick} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -72,7 +72,8 @@ export const Main = (props) => {
         <div className="cities">
           <div className="cities__places-container container">
             <PlaceList
-            
+              offers={offers}
+              onCardTitleClick={onCardTitleClick}
             />
             <div className="cities__right-section">
               <section className="cities__map map"></section>

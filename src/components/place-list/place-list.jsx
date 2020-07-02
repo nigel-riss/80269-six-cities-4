@@ -26,13 +26,13 @@ class PlaceList extends PureComponent {
               <use xlinkHref="#icon-arrow-select"></use>
             </svg>
           </span>
-          <ul className="places__options places__options--custom places__options--opened">
+          {/* <ul className="places__options places__options--custom places__options--opened">
             <li className="places__option places__option--active" tabIndex="0">Popular</li>
             <li className="places__option" tabIndex="0">Price: low to high</li>
             <li className="places__option" tabIndex="0">Price: high to low</li>
             <li className="places__option" tabIndex="0">Top rated first</li>
           </ul>
-          {/* <select className="places__sorting-type" id="places-sorting">
+          <select className="places__sorting-type" id="places-sorting">
             <option className="places__option" value="popular" selected="">Popular</option>
             <option className="places__option" value="to-high">Price: low to high</option>
             <option className="places__option" value="to-low">Price: high to low</option>
@@ -40,10 +40,12 @@ class PlaceList extends PureComponent {
           </select> */}
         </form>
         <div className="cities__places-list places__list tabs__content">
-          {offers.map((name, i) => {
+          {offers.map((offer, i) => {
             return <PlaceCard
+              {...offer}
               key={`${i}-${name}`}
               onCardTitleClick={onCardTitleClick}
+              // onCardMouseEnter,
             />;
           })}
         </div>

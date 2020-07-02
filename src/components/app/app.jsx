@@ -7,15 +7,17 @@ const handleCardTitleClick = () => {};
 
 
 export const App = (props) => {
-  const {cardNames} = props;
+  const {offers} = props;
 
   return <Main
-    cardNames={cardNames}
+    offers={offers}
     onCardTitleClick={handleCardTitleClick}
   />;
 };
 
 
 App.propTypes = {
-  cardNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape({
+    
+  })).isRequired,
 };
