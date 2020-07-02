@@ -87,7 +87,7 @@ PlaceCard.propTypes = {
   photo: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
-  type: PropTypes.oneOf(PlaceTypes).isRequired,
+  type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
 };
 
 export default PlaceCard;

@@ -1,11 +1,14 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import PlaceCard from '../place-card/place-card.jsx';
+import {PlaceTypes} from '../../const.js';
 
 
 class PlaceList extends PureComponent {
   constructor(props) {
     super(props);
+
+    this._handlePlaceCardMouseEnter = this._handlePlaceCardMouseEnter.bind(this);
   }
 
   render() {
@@ -45,7 +48,9 @@ class PlaceList extends PureComponent {
               {...offer}
               key={`${i}-${name}`}
               onCardTitleClick={onCardTitleClick}
-              // onCardMouseEnter,
+              onCardMouseEnter={() => {
+                this._handlePlaceCardMouseEnter(offer);
+              }}
             />;
           })}
         </div>
@@ -53,15 +58,22 @@ class PlaceList extends PureComponent {
     );
   }
 
-  _handlePlaceCardMouseEnter() {
-
+  _handlePlaceCardMouseEnter(offer) {
+    this.setState({
+      currentOffer: offer,
+    });
   }
 }
 
 
 PlaceList.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
-
+    description: PropTypes.string.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    photo: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
   })).isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
 };
