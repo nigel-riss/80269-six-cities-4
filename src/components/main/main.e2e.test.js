@@ -45,12 +45,10 @@ Enzyme.configure({
 it(`Card Title can be clicked`, () => {
   const handleCardTitleClick = jest.fn();
 
-  const main = mount(
-      <Main
-        onCardTitleClick={handleCardTitleClick}
-        offers={offersMock}
-      />
-  );
+  const main = mount(<Main
+    onCardTitleClick={handleCardTitleClick}
+    offers={offersMock}
+  />);
 
   const cardTitles = main.find(`h2.place-card__name a`);
 
