@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Main from '../main/main.jsx';
 import {PlaceTypes} from '../../const.js';
@@ -14,10 +15,12 @@ class App extends PureComponent {
   render() {
     const {offers} = this.props;
 
-    return <Main
-      offers={offers}
-      onCardTitleClick={this._handleCardTitleClick}
-    />;
+    return (
+      <Main
+        offers={offers}
+        onCardTitleClick={this._handleCardTitleClick}
+      />
+    );
   }
 
   _handleCardTitleClick() {}
