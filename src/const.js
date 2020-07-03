@@ -1,5 +1,5 @@
 export const PlaceTypes = {
-  APPARTMENT: `apartment`,
+  APARTMENT: `apartment`,
   ROOM: `room`,
   HOUSE: `house`,
   HOTEL: `hotel`,

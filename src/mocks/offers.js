@@ -13,7 +13,7 @@ export default [
     isPremium: false,
     price: 150,
     description: `Nice, cozy, warm big bed apartment`,
-    type: PlaceTypes.APPARTMENT,
+    type: PlaceTypes.APARTMENT,
     rating: 4.7,
   }, {
     photo: `apartment-03.jpg`,
