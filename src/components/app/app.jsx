@@ -1,21 +1,39 @@
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import React from 'react';
-import {Main} from '../main/main.jsx';
+import Main from '../main/main.jsx';
+import {PlaceTypes} from '../../const.js';
 
 
-const handleCardTitleClick = () => {};
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
 
+    this._handleCardTitleClick = this._handleCardTitleClick.bind(this);
+  }
 
-export const App = (props) => {
-  const {cardNames} = props;
+  render() {
+    const {offers} = this.props;
 
-  return <Main
-    cardNames={cardNames}
-    onCardTitleClick={handleCardTitleClick}
-  />;
-};
+    return <Main
+      offers={offers}
+      onCardTitleClick={this._handleCardTitleClick}
+    />;
+  }
+
+  _handleCardTitleClick() {}
+}
 
 
 App.propTypes = {
-  cardNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape({
+    description: PropTypes.string.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    photo: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
+  })).isRequired,
 };
+
+
+export default App;

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from './app.jsx';
+import PlaceList from './place-list.jsx';
 
 
 const offersMock = [
@@ -36,10 +36,13 @@ const offersMock = [
 ];
 
 
-it(`App renders correctly`, () => {
+it(`PlaceList renders correctly`, () => {
+  const handleCardTitleClick = jest.fn();
+
   const tree = renderer
-    .create(<App
+    .create(<PlaceList
       offers={offersMock}
+      onCardTitleClick={handleCardTitleClick}
     />)
     .toJSON();
 

@@ -1,47 +1,33 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import App from './app.jsx';
+import {PlaceTypes} from '../const';
 
-
-const offersMock = [
+export default [
   {
     photo: `apartment-01.jpg`,
     isPremium: false,
     price: 70,
     description: `Canal View Prinsengracht`,
-    type: `hotel`,
+    type: PlaceTypes.HOTEL,
     rating: 3.7,
   }, {
     photo: `apartment-02.jpg`,
     isPremium: false,
     price: 150,
     description: `Nice, cozy, warm big bed apartment`,
-    type: `apartment`,
+    type: PlaceTypes.APARTMENT,
     rating: 4.7,
   }, {
     photo: `apartment-03.jpg`,
     isPremium: true,
     price: 300,
     description: `Beautiful &amp; luxurious house at great location`,
-    type: `house`,
+    type: PlaceTypes.HOUSE,
     rating: 4.5,
   }, {
     photo: `room.jpg`,
     isPremium: false,
     price: 20,
     description: `Wood and stone place`,
-    type: `room`,
+    type: PlaceTypes.ROOM,
     rating: 3.3,
   },
 ];
-
-
-it(`App renders correctly`, () => {
-  const tree = renderer
-    .create(<App
-      offers={offersMock}
-    />)
-    .toJSON();
-
-  expect(tree).toMatchSnapshot();
-});
