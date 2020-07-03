@@ -17,11 +17,13 @@ it(`PlaceCard renders correctly`, () => {
   const handleCardTitleClick = jest.fn();
   const handleCardMouseEnter = jest.fn();
 
-  const tree = renderer.create(<PlaceCard
-    {...cardMock}
-    onCardTitleClick={handleCardTitleClick}
-    onCardMouseEnter={handleCardMouseEnter}
-  />).toJSON();
+  const tree = renderer
+    .create(<PlaceCard
+      {...cardMock}
+      onCardTitleClick={handleCardTitleClick}
+      onCardMouseEnter={handleCardMouseEnter}
+    />)
+    .toJSON();
 
   expect(tree).toMatchSnapshot();
 });
