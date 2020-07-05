@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Main from '../main/main.jsx';
+import Property from '../property/property.jsx';
 import {PlaceTypes} from '../../const.js';
 
 
@@ -15,6 +16,21 @@ class App extends PureComponent {
   render() {
     const {offers} = this.props;
 
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            {this._renderApp(offers)}
+          </Route>
+          <Route exact path="/property">
+            <Property/>
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+
+  _renderApp(offers) {
     return (
       <Main
         offers={offers}
