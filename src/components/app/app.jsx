@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Main from '../main/main.jsx';
 import Property from '../property/property.jsx';
 import {PlaceTypes} from '../../const.js';
+import property from '../../mocks/property.js';
 
 
 class App extends PureComponent {
@@ -23,7 +24,9 @@ class App extends PureComponent {
             {this._renderApp(offers)}
           </Route>
           <Route exact path="/property">
-            <Property/>
+            <Property
+              {...property}
+            />
           </Route>
         </Switch>
       </BrowserRouter>

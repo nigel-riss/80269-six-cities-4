@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {PlaceTypes} from '../../const.js';
 
 
 class Property extends PureComponent {
@@ -8,6 +9,30 @@ class Property extends PureComponent {
   }
 
   render() {
+    const {
+      photos,
+      isPremium,
+      title,
+      descriptionLines,
+      rating,
+      type,
+      bedroomsCount,
+      maxAdultsCount,
+      price,
+      host,
+      features,
+    } = this.props;
+
+    const {
+      name: hostName,
+      avatar,
+      isSuper,
+    } = host;
+
+    const ratingWidth = `${Math.round(rating) * 20}%`;
+    const bedroomsText = `${bedroomsCount} Bedroom${bedroomsCount !== 1 ? `s` : ``}`;
+    const maxAdultsText = `Max ${maxAdultsCount} adult${maxAdultsCount !== 1 ? `s` : ``}`;
+
     return (
       <div className="page">
         <header className="header">
@@ -37,34 +62,27 @@ class Property extends PureComponent {
           <section className="property">
             <div className="property__gallery-container container">
               <div className="property__gallery">
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/room.jpg" alt="Photo studio"/>
-                </div>
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio"/>
-                </div>
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-02.jpg" alt="Photo studio"/>
-                </div>
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-03.jpg" alt="Photo studio"/>
-                </div>
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/studio-01.jpg" alt="Photo studio"/>
-                </div>
-                <div className="property__image-wrapper">
-                  <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio"/>
-                </div>
+                {photos.map((photo, i) => {
+                  return (
+                    <div className="property__image-wrapper" key={`${photo}=${i}`}>
+                      <img className="property__image" src={`img/${photo}`} alt="Photo studio"/>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <div className="property__container container">
               <div className="property__wrapper">
-                <div className="property__mark">
-                  <span>Premium</span>
-                </div>
+                {
+                  isPremium ?
+                    <div className="property__mark">
+                      <span>Premium</span>
+                    </div> :
+                    null
+                }
                 <div className="property__name-wrapper">
                   <h1 className="property__name">
-                    Beautiful &amp; luxurious studio at great location
+                    {title}
                   </h1>
                   <button className="property__bookmark-button button" type="button">
                     <svg className="property__bookmark-icon" width="31" height="33">
@@ -75,78 +93,56 @@ class Property extends PureComponent {
                 </div>
                 <div className="property__rating rating">
                   <div className="property__stars rating__stars">
-                    <span style={{width: `80%`}}></span>
+                    <span style={{width: ratingWidth}}></span>
                     <span className="visually-hidden">Rating</span>
                   </div>
-                  <span className="property__rating-value rating__value">4.8</span>
+                  <span className="property__rating-value rating__value">{rating}</span>
                 </div>
                 <ul className="property__features">
                   <li className="property__feature property__feature--entire">
-                    Apartment
+                    {type}
                   </li>
                   <li className="property__feature property__feature--bedrooms">
-                    3 Bedrooms
+                    {bedroomsText}
                   </li>
                   <li className="property__feature property__feature--adults">
-                    Max 4 adults
+                    {maxAdultsText}
                   </li>
                 </ul>
                 <div className="property__price">
-                  <b className="property__price-value">&euro;120</b>
+                  <b className="property__price-value">&euro;{price}</b>
                   <span className="property__price-text">&nbsp;night</span>
                 </div>
                 <div className="property__inside">
                   <h2 className="property__inside-title">What&apos;s inside</h2>
                   <ul className="property__inside-list">
-                    <li className="property__inside-item">
-                      Wi-Fi
-                    </li>
-                    <li className="property__inside-item">
-                      Washing machine
-                    </li>
-                    <li className="property__inside-item">
-                      Towels
-                    </li>
-                    <li className="property__inside-item">
-                      Heating
-                    </li>
-                    <li className="property__inside-item">
-                      Coffee machine
-                    </li>
-                    <li className="property__inside-item">
-                      Baby seat
-                    </li>
-                    <li className="property__inside-item">
-                      Kitchen
-                    </li>
-                    <li className="property__inside-item">
-                      Dishwasher
-                    </li>
-                    <li className="property__inside-item">
-                      Cabel TV
-                    </li>
-                    <li className="property__inside-item">
-                      Fridge
-                    </li>
+                    {features.map((feature, i) => {
+                      return (
+                        <li className="property__inside-item" key={`${feature}-${i}`}>
+                          {feature}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
                 <div className="property__host">
                   <h2 className="property__host-title">Meet the host</h2>
                   <div className="property__host-user user">
-                    <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                      <img className="property__avatar user__avatar" src="img/avatar-angelina.jpg" width="74" height="74" alt="Host avatar"/>
+                    <div className={`property__avatar-wrapper ${isSuper ? `property__avatar-wrapper--pro` : ``} user__avatar-wrapper`}>
+                      <img className="property__avatar user__avatar" src={`img/${avatar}`} width="74" height="74" alt="Host avatar"/>
                     </div>
                     <span className="property__user-name">
-                      Angelina
+                      {hostName}
                     </span>
                   </div>
                   <div className="property__description">
-                    <p className="property__text">
-                      A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                    </p>
-                    <p className="property__text">
-                      An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
-                    </p>
+                    {descriptionLines.map((line, i) => {
+                      return (
+                        <p className="property__text" key={`${line}-${i}`}>
+                          {line}
+                        </p>
+                      );
+                    })}
                   </div>
                 </div>
                 <section className="property__reviews reviews">
@@ -155,7 +151,7 @@ class Property extends PureComponent {
                     <li className="reviews__item">
                       <div className="reviews__user user">
                         <div className="reviews__avatar-wrapper user__avatar-wrapper">
-                          <img className="reviews__avatar user__avatar" src="img/avatar-max.jpg" width="54" height="54" alt="Reviews avatar"/>
+                          <img className="reviews__avatar user__avatar" src="img/" width="54" height="54" alt="Reviews avatar"/>
                         </div>
                         <span className="reviews__user-name">
                           Max
@@ -333,6 +329,25 @@ class Property extends PureComponent {
     );
   }
 }
+
+
+Property.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isPremium: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
+  rating: PropTypes.number.isRequired,
+  type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
+  bedroomsCount: PropTypes.number.isRequired,
+  maxAdultsCount: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+  host: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    isSuper: PropTypes.bool.isRequired,
+  }).isRequired,
+  features: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 
 export default Property;

@@ -44,14 +44,16 @@ class PlaceList extends PureComponent {
         </form>
         <div className="cities__places-list places__list tabs__content">
           {offers.map((offer, i) => {
-            return <PlaceCard
-              {...offer}
-              key={`${i}-${name}`}
-              onCardTitleClick={onCardTitleClick}
-              onCardMouseEnter={() => {
-                this._handlePlaceCardMouseEnter(offer);
-              }}
-            />;
+            return (
+              <PlaceCard
+                {...offer}
+                key={`${i}-${name}`}
+                onCardTitleClick={onCardTitleClick}
+                onCardMouseEnter={() => {
+                  this._handlePlaceCardMouseEnter(offer);
+                }}
+              />
+            );
           })}
         </div>
       </section>
