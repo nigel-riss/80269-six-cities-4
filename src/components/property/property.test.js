@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import PlaceCard from './place-card.jsx';
+import Property from '../property/property.jsx';
 
 
 const offerMock = {
@@ -43,15 +43,10 @@ const offerMock = {
 };
 
 
-it(`PlaceCard renders correctly`, () => {
-  const handleCardTitleClick = jest.fn();
-  const handleCardMouseEnter = jest.fn();
-
+it(`Property component renders correncty`, () => {
   const tree = renderer
-    .create(<PlaceCard
+    .create(<Property
       offer={offerMock}
-      onCardTitleClick={handleCardTitleClick}
-      onCardMouseEnter={handleCardMouseEnter}
     />)
     .toJSON();
 

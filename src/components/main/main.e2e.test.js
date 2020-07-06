@@ -162,7 +162,7 @@ Enzyme.configure({
 });
 
 
-it(`Card Title can be clicked`, () => {
+describe(`PlaceCard title click tests`, () => {
   const handleCardTitleClick = jest.fn();
 
   const main = mount(<Main
@@ -172,9 +172,21 @@ it(`Card Title can be clicked`, () => {
 
   const cardTitles = main.find(`h2.place-card__name a`);
 
-  cardTitles.forEach((cardTitle) => {
-    cardTitle.simulate(`click`);
+
+  it(`PlaceCard title can be clicked`, () => {
+
+    cardTitles.forEach((cardTitle) => {
+      cardTitle.simulate(`click`);
+    });
+
+    expect(handleCardTitleClick).toHaveBeenCalledTimes(offersMock.length);
   });
 
-  expect(handleCardTitleClick).toHaveBeenCalledTimes(offersMock.length);
+  it(`PlaceCard title click handler recieves correct data when triggered`, () => {
+    const cardThreeTitle = cardTitles.at(2);
+
+    cardThreeTitle.simulate(`click`);
+
+    expect(handleCardTitleClick.mock.calls[offersMock.length][0]).toMatchObject(offersMock[2]);
+  });
 });
