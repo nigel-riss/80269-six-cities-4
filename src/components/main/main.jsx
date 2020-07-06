@@ -95,11 +95,20 @@ class Main extends PureComponent {
 
 Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
-    description: PropTypes.string.isRequired,
+    bedroomsCount: PropTypes.number.isRequired,
+    descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
+    features: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      isSuper: PropTypes.bool.isRequired,
+    }).isRequired,
     isPremium: PropTypes.bool.isRequired,
-    photo: PropTypes.string.isRequired,
+    maxAdultsCount: PropTypes.number.isRequired,
+    photos: PropTypes.arrayOf(PropTypes.string).isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
   })).isRequired,
   onCardTitleClick: PropTypes.func.isRequired,

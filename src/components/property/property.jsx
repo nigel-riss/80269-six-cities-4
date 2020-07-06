@@ -9,6 +9,8 @@ class Property extends PureComponent {
   }
 
   render() {
+    const {offer} = this.props;
+
     const {
       photos,
       isPremium,
@@ -21,7 +23,7 @@ class Property extends PureComponent {
       price,
       host,
       features,
-    } = this.props;
+    } = offer;
 
     const {
       name: hostName,
@@ -332,22 +334,23 @@ class Property extends PureComponent {
 
 
 Property.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.string).isRequired,
-  isPremium: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired,
-  descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
-  rating: PropTypes.number.isRequired,
-  type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
-  bedroomsCount: PropTypes.number.isRequired,
-  maxAdultsCount: PropTypes.number.isRequired,
-  price: PropTypes.number.isRequired,
-  host: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    isSuper: PropTypes.bool.isRequired,
+  offer: PropTypes.shape({
+    bedroomsCount: PropTypes.number.isRequired,
+    descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
+    features: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      isSuper: PropTypes.bool.isRequired,
+    }).isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    maxAdultsCount: PropTypes.number.isRequired,
+    photos: PropTypes.arrayOf(PropTypes.string).isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
   }).isRequired,
-  features: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
-
 
 export default Property;
