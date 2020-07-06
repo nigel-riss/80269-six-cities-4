@@ -129,7 +129,7 @@ exports[`PlaceList renders correctly 1`] = `
         >
           <a
             href="#"
-            onClick={[MockFunction]}
+            onClick={[Function]}
           >
             Canal View Prinsengracht
           </a>
@@ -137,7 +137,7 @@ exports[`PlaceList renders correctly 1`] = `
         <p
           className="place-card__type"
         >
-          hotel
+          Hotel
         </p>
       </div>
     </article>
@@ -226,7 +226,7 @@ exports[`PlaceList renders correctly 1`] = `
         >
           <a
             href="#"
-            onClick={[MockFunction]}
+            onClick={[Function]}
           >
             Nice, cozy, warm big bed apartment
           </a>
@@ -234,7 +234,7 @@ exports[`PlaceList renders correctly 1`] = `
         <p
           className="place-card__type"
         >
-          apartment
+          Apartment
         </p>
       </div>
     </article>
@@ -330,7 +330,7 @@ exports[`PlaceList renders correctly 1`] = `
         >
           <a
             href="#"
-            onClick={[MockFunction]}
+            onClick={[Function]}
           >
             Beautiful &amp; luxurious house at great location
           </a>
@@ -338,7 +338,7 @@ exports[`PlaceList renders correctly 1`] = `
         <p
           className="place-card__type"
         >
-          house
+          House
         </p>
       </div>
     </article>
@@ -427,7 +427,7 @@ exports[`PlaceList renders correctly 1`] = `
         >
           <a
             href="#"
-            onClick={[MockFunction]}
+            onClick={[Function]}
           >
             Wood and stone place
           </a>
@@ -435,7 +435,7 @@ exports[`PlaceList renders correctly 1`] = `
         <p
           className="place-card__type"
         >
-          room
+          Private room
         </p>
       </div>
     </article>

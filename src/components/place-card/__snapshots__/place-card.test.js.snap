@@ -6,6 +6,13 @@ exports[`PlaceCard renders correctly 1`] = `
   onMouseEnter={[MockFunction]}
 >
   <div
+    className="place-card__mark"
+  >
+    <span>
+      Premium
+    </span>
+  </div>
+  <div
     className="cities__image-wrapper place-card__image-wrapper"
   >
     <a
@@ -15,7 +22,7 @@ exports[`PlaceCard renders correctly 1`] = `
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/apartment-01.jpg"
+        src="img/apartment-03.jpg"
         width="260"
       />
     </a>
@@ -33,7 +40,7 @@ exports[`PlaceCard renders correctly 1`] = `
           className="place-card__price-value"
         >
           €
-          70
+          300
         </b>
         <span
           className="place-card__price-text"
@@ -70,7 +77,7 @@ exports[`PlaceCard renders correctly 1`] = `
         <span
           style={
             Object {
-              "width": "80%",
+              "width": "100%",
             }
           }
         />
@@ -88,13 +95,13 @@ exports[`PlaceCard renders correctly 1`] = `
         href="#"
         onClick={[MockFunction]}
       >
-        Canal View Prinsengracht
+        Beautiful &amp; luxurious house at great location
       </a>
     </h2>
     <p
       className="place-card__type"
     >
-      hotel
+      House
     </p>
   </div>
 </article>
