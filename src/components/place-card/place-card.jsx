@@ -11,16 +11,17 @@ class PlaceCard extends PureComponent {
 
   render() {
     const {
-      description,
       isPremium,
-      onCardTitleClick,
       onCardMouseEnter,
-      photo,
+      onCardTitleClick,
+      photos,
       price,
       rating,
+      title,
       type,
     } = this.props;
 
+    const photo = photos[0];
     const ratingWidth = `${Math.round(rating) * 20}%`;
 
     return (
@@ -66,7 +67,7 @@ class PlaceCard extends PureComponent {
               href="#"
               onClick={onCardTitleClick}
             >
-              {description}
+              {title}
             </a>
           </h2>
           <p className="place-card__type">
@@ -80,13 +81,13 @@ class PlaceCard extends PureComponent {
 
 
 PlaceCard.propTypes = {
-  description: PropTypes.string.isRequired,
   isPremium: PropTypes.bool.isRequired,
   onCardMouseEnter: PropTypes.func.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
-  photo: PropTypes.string.isRequired,
+  photos: PropTypes.arrayOf(PropTypes.string).isRequired,
   price: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
 };
 
