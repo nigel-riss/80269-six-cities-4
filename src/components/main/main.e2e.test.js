@@ -6,33 +6,153 @@ import Main from './main.jsx';
 
 const offersMock = [
   {
-    photo: `apartment-01.jpg`,
+    photos: [
+      `apartment-01.jpg`,
+      `room.jpg`,
+      `apartment-02.jpg`,
+      `apartment-03.jpg`,
+      `studio-01.jpg`,
+      `apartment-01.jpg`,
+    ],
     isPremium: false,
     price: 70,
-    description: `Canal View Prinsengracht`,
-    type: `hotel`,
+    title: `Canal View Prinsengracht`,
+    type: `Hotel`,
     rating: 3.7,
+    descriptionLines: [
+      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+      `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    ],
+    bedroomsCount: 3,
+    maxAdultsCount: 4,
+    host: {
+      name: `Yuriy`,
+      avatar: `avatar-max.jpg`,
+      isSuper: true,
+    },
+    features: [
+      `Wi-Fi`,
+      `Washing machine`,
+      `Towels`,
+      `Heating`,
+      `Coffee machine`,
+      `Baby seat`,
+      `Kitchen`,
+      `Dishwasher`,
+      `Cabel TV`,
+      `Fridge`,
+    ],
   }, {
-    photo: `apartment-02.jpg`,
+    photos: [
+      `apartment-02.jpg`,
+      `room.jpg`,
+      `apartment-01.jpg`,
+      `apartment-03.jpg`,
+      `studio-01.jpg`,
+      `apartment-01.jpg`,
+    ],
     isPremium: false,
     price: 150,
-    description: `Nice, cozy, warm big bed apartment`,
-    type: `apartment`,
+    title: `Nice, cozy, warm big bed apartment`,
+    type: `Apartment`,
     rating: 4.7,
+    descriptionLines: [
+      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    ],
+    bedroomsCount: 1,
+    maxAdultsCount: 2,
+    host: {
+      name: `Anonymus`,
+      avatar: `avatar.svg`,
+      isSuper: false,
+    },
+    features: [
+      `Wi-Fi`,
+      `Ultra hi-end PC`,
+      `Towels`,
+      `Heating`,
+      `Coffee machine`,
+      `Kitchen`,
+      `Dishwasher`,
+      `Fridge`,
+    ],
   }, {
-    photo: `apartment-03.jpg`,
+    photos: [
+      `apartment-03.jpg`,
+      `room.jpg`,
+      `apartment-01.jpg`,
+      `apartment-02.jpg`,
+      `studio-01.jpg`,
+      `apartment-01.jpg`,
+    ],
     isPremium: true,
     price: 300,
-    description: `Beautiful &amp; luxurious house at great location`,
-    type: `house`,
+    title: `Beautiful &amp; luxurious house at great location`,
+    type: `House`,
     rating: 4.5,
+    descriptionLines: [
+      `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    ],
+    bedroomsCount: 3,
+    maxAdultsCount: 2,
+    host: {
+      name: `Angelina`,
+      avatar: `avatar-angelina.jpg`,
+      isSuper: true,
+    },
+    features: [
+      `Wi-Fi`,
+      `Washing machine`,
+      `Towels`,
+      `Heating`,
+      `Coffee machine`,
+      `Baby seat`,
+      `Kitchen`,
+      `Dishwasher`,
+      `Cabel TV`,
+      `Fridge`,
+    ],
   }, {
-    photo: `room.jpg`,
+    photos: [
+      `room.jpg`,
+      `apartment-01.jpg`,
+      `studio-01.jpg`,
+      `apartment-02.jpg`,
+      `apartment-03.jpg`,
+      `apartment-01.jpg`,
+    ],
     isPremium: false,
     price: 20,
-    description: `Wood and stone place`,
-    type: `room`,
+    title: `Wood and stone place`,
+    type: `Private room`,
     rating: 3.3,
+    descriptionLines: [
+      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+      `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    ],
+    bedroomsCount: 3,
+    maxAdultsCount: 2,
+    host: {
+      name: `Yuriy`,
+      avatar: `avatar-max.jpg`,
+      isSuper: true,
+    },
+    features: [
+      `Wi-Fi`,
+      `Washing machine`,
+      `Towels`,
+      `Heating`,
+      `Coffee machine`,
+      `Baby seat`,
+      `Kitchen`,
+      `Dishwasher`,
+      `Cabel TV`,
+      `Fridge`,
+    ],
   },
 ];
 
@@ -42,7 +162,7 @@ Enzyme.configure({
 });
 
 
-it(`Card Title can be clicked`, () => {
+describe(`PlaceCard title click tests`, () => {
   const handleCardTitleClick = jest.fn();
 
   const main = mount(<Main
@@ -52,9 +172,21 @@ it(`Card Title can be clicked`, () => {
 
   const cardTitles = main.find(`h2.place-card__name a`);
 
-  cardTitles.forEach((cardTitle) => {
-    cardTitle.simulate(`click`);
+
+  it(`PlaceCard title can be clicked`, () => {
+
+    cardTitles.forEach((cardTitle) => {
+      cardTitle.simulate(`click`);
+    });
+
+    expect(handleCardTitleClick).toHaveBeenCalledTimes(offersMock.length);
   });
 
-  expect(handleCardTitleClick).toHaveBeenCalledTimes(offersMock.length);
+  it(`PlaceCard title click handler recieves correct data when triggered`, () => {
+    const cardThreeTitle = cardTitles.at(2);
+
+    cardThreeTitle.simulate(`click`);
+
+    expect(handleCardTitleClick.mock.calls[offersMock.length][0]).toMatchObject(offersMock[2]);
+  });
 });

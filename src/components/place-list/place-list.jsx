@@ -44,14 +44,18 @@ class PlaceList extends PureComponent {
         </form>
         <div className="cities__places-list places__list tabs__content">
           {offers.map((offer, i) => {
-            return <PlaceCard
-              {...offer}
-              key={`${i}-${name}`}
-              onCardTitleClick={onCardTitleClick}
-              onCardMouseEnter={() => {
-                this._handlePlaceCardMouseEnter(offer);
-              }}
-            />;
+            return (
+              <PlaceCard
+                offer={offer}
+                key={`${i}-${name}`}
+                onCardTitleClick={() => {
+                  onCardTitleClick(offer);
+                }}
+                onCardMouseEnter={() => {
+                  this._handlePlaceCardMouseEnter(offer);
+                }}
+              />
+            );
           })}
         </div>
       </section>
@@ -68,11 +72,20 @@ class PlaceList extends PureComponent {
 
 PlaceList.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
-    description: PropTypes.string.isRequired,
+    bedroomsCount: PropTypes.number.isRequired,
+    descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
+    features: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      isSuper: PropTypes.bool.isRequired,
+    }).isRequired,
     isPremium: PropTypes.bool.isRequired,
-    photo: PropTypes.string.isRequired,
+    maxAdultsCount: PropTypes.number.isRequired,
+    photos: PropTypes.arrayOf(PropTypes.string).isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
   })).isRequired,
   onCardTitleClick: PropTypes.func.isRequired,

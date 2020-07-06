@@ -1,10 +1,9 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import PlaceCard from './place-card.jsx';
+import renderer from 'react-test-renderer';
+import Property from '../property/property.jsx';
 
 
-const cardMock = {
+const offerMock = {
   photos: [
     `apartment-03.jpg`,
     `room.jpg`,
@@ -44,24 +43,12 @@ const cardMock = {
 };
 
 
-Enzyme.configure({
-  adapter: new Adapter()
-});
+it(`Property component renders correncty`, () => {
+  const tree = renderer
+    .create(<Property
+      offer={offerMock}
+    />)
+    .toJSON();
 
-
-it(`PlaceCard onCardMouseEnter handler recieves correct data on mouse enter`, () => {
-  const handleCardMouseEnter = jest.fn();
-  const handleCardTitleClick = jest.fn();
-
-  const placeCard = shallow(<PlaceCard
-    offer={cardMock}
-    onCardTitleClick={handleCardTitleClick}
-    onCardMouseEnter={handleCardMouseEnter}
-  />);
-
-  placeCard.simulate(`mouseEnter`, cardMock);
-
-  expect(handleCardMouseEnter).toHaveBeenCalledTimes(1);
-
-  expect(handleCardMouseEnter.mock.calls[0][0]).toMatchObject(cardMock);
+  expect(tree).toMatchSnapshot();
 });
