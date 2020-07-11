@@ -39,6 +39,7 @@ export default [
       `Cabel TV`,
       `Fridge`,
     ],
+    coordinates: [52.3909553943508, 4.85309666406198],
   }, {
     photos: [
       `apartment-02.jpg`,
@@ -74,6 +75,7 @@ export default [
       `Dishwasher`,
       `Fridge`,
     ],
+    coordinates: [52.369553943508, 4.85309666406198],
   }, {
     photos: [
       `apartment-03.jpg`,
@@ -111,6 +113,7 @@ export default [
       `Cabel TV`,
       `Fridge`,
     ],
+    coordinates: [52.3909553943508, 4.929309666406198],
   }, {
     photos: [
       `room.jpg`,
@@ -149,5 +152,6 @@ export default [
       `Cabel TV`,
       `Fridge`,
     ],
+    coordinates: [52.3809553943508, 4.939309666406198],
   },
 ];
