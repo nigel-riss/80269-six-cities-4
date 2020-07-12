@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import PlaceList from '../place-list/place-list.jsx';
+import Map from '../map/map.jsx';
 import {PlaceTypes} from '../../const.js';
 
 
@@ -82,7 +83,9 @@ class Main extends PureComponent {
                 onCardTitleClick={onCardTitleClick}
               />
               <div className="cities__right-section">
-                <section className="cities__map map"></section>
+                <section className="cities__map map">
+                  <Map/>
+                </section>
               </div>
             </div>
           </div>
