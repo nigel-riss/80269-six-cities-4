@@ -76,11 +76,11 @@ class Property extends PureComponent {
             <div className="property__container container">
               <div className="property__wrapper">
                 {
-                  isPremium ?
+                  isPremium && (
                     <div className="property__mark">
                       <span>Premium</span>
-                    </div> :
-                    null
+                    </div>
+                  )
                 }
                 <div className="property__name-wrapper">
                   <h1 className="property__name">

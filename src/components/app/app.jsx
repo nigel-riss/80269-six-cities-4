@@ -34,7 +34,7 @@ class App extends PureComponent {
           </Route>
           <Route exact path="/property">
             <Property
-              offer={offers[1]}
+              offer={offers[2]}
             />
           </Route>
         </Switch>

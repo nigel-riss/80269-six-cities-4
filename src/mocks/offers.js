@@ -87,7 +87,7 @@ export default [
     ],
     isPremium: true,
     price: 300,
-    title: `Beautiful &amp; luxurious house at great location`,
+    title: `Beautiful & luxurious house at great location`,
     type: PlaceTypes.HOUSE,
     rating: 4.5,
     descriptionLines: [
