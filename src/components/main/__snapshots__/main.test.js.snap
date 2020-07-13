@@ -484,7 +484,7 @@ exports[`Main renders correctly 1`] = `
                     href="#"
                     onClick={[Function]}
                   >
-                    Beautiful &amp; luxurious house at great location
+                    Beautiful & luxurious house at great location
                   </a>
                 </h2>
                 <p
@@ -598,7 +598,16 @@ exports[`Main renders correctly 1`] = `
         >
           <section
             className="cities__map map"
-          />
+          >
+            <div
+              id="map"
+              style={
+                Object {
+                  "height": "100%",
+                }
+              }
+            />
+          </section>
         </div>
       </div>
     </div>

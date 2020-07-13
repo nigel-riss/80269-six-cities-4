@@ -73,6 +73,7 @@ class PlaceList extends PureComponent {
 PlaceList.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
     bedroomsCount: PropTypes.number.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
     descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     host: PropTypes.shape({

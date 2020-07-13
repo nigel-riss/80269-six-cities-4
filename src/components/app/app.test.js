@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import App from './app.jsx';
+import {PlaceTypes} from '../../const.js';
 
 
 const offersMock = [
@@ -16,7 +17,7 @@ const offersMock = [
     isPremium: false,
     price: 70,
     title: `Canal View Prinsengracht`,
-    type: `Hotel`,
+    type: PlaceTypes.HOTEL,
     rating: 3.7,
     descriptionLines: [
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
@@ -42,6 +43,7 @@ const offersMock = [
       `Cabel TV`,
       `Fridge`,
     ],
+    coordinates: [52.3909553943508, 4.85309666406198],
   }, {
     photos: [
       `apartment-02.jpg`,
@@ -54,7 +56,7 @@ const offersMock = [
     isPremium: false,
     price: 150,
     title: `Nice, cozy, warm big bed apartment`,
-    type: `Apartment`,
+    type: PlaceTypes.APARTMENT,
     rating: 4.7,
     descriptionLines: [
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
@@ -77,6 +79,7 @@ const offersMock = [
       `Dishwasher`,
       `Fridge`,
     ],
+    coordinates: [52.369553943508, 4.85309666406198],
   }, {
     photos: [
       `apartment-03.jpg`,
@@ -88,8 +91,8 @@ const offersMock = [
     ],
     isPremium: true,
     price: 300,
-    title: `Beautiful &amp; luxurious house at great location`,
-    type: `House`,
+    title: `Beautiful & luxurious house at great location`,
+    type: PlaceTypes.HOUSE,
     rating: 4.5,
     descriptionLines: [
       `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
@@ -114,6 +117,7 @@ const offersMock = [
       `Cabel TV`,
       `Fridge`,
     ],
+    coordinates: [52.3909553943508, 4.929309666406198],
   }, {
     photos: [
       `room.jpg`,
@@ -126,7 +130,7 @@ const offersMock = [
     isPremium: false,
     price: 20,
     title: `Wood and stone place`,
-    type: `Private room`,
+    type: PlaceTypes.ROOM,
     rating: 3.3,
     descriptionLines: [
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
@@ -152,6 +156,7 @@ const offersMock = [
       `Cabel TV`,
       `Fridge`,
     ],
+    coordinates: [52.3809553943508, 4.939309666406198],
   },
 ];
 
@@ -160,7 +165,11 @@ it(`App renders correctly`, () => {
   const tree = renderer
     .create(<App
       offers={offersMock}
-    />)
+    />, {
+      createNodeMock: () => {
+        return document.createElement(`div`);
+      },
+    })
     .toJSON();
 
   expect(tree).toMatchSnapshot();

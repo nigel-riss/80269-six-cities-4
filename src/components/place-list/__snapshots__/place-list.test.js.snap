@@ -332,7 +332,7 @@ exports[`PlaceList renders correctly 1`] = `
             href="#"
             onClick={[Function]}
           >
-            Beautiful &amp; luxurious house at great location
+            Beautiful & luxurious house at great location
           </a>
         </h2>
         <p

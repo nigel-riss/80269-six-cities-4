@@ -4,6 +4,7 @@ import PlaceList from '../place-list/place-list.jsx';
 import Map from '../map/map.jsx';
 import {PlaceTypes} from '../../const.js';
 
+
 const MAP_CENTER = [52.38333, 4.9];
 const MAP_ZOOM = 12;
 
