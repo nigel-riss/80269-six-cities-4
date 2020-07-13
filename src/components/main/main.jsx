@@ -4,6 +4,9 @@ import PlaceList from '../place-list/place-list.jsx';
 import Map from '../map/map.jsx';
 import {PlaceTypes} from '../../const.js';
 
+const MAP_CENTER = [52.38333, 4.9];
+const MAP_ZOOM = 12;
+
 
 class Main extends PureComponent {
   constructor(props) {
@@ -84,7 +87,11 @@ class Main extends PureComponent {
               />
               <div className="cities__right-section">
                 <section className="cities__map map">
-                  <Map/>
+                  <Map
+                    center={MAP_CENTER}
+                    zoom={MAP_ZOOM}
+                    offers={offers}
+                  />
                 </section>
               </div>
             </div>
@@ -99,6 +106,7 @@ class Main extends PureComponent {
 Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
     bedroomsCount: PropTypes.number.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
     descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     host: PropTypes.shape({

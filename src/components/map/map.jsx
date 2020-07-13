@@ -1,6 +1,7 @@
 import React, {PureComponent, createRef} from 'react';
 import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
+import {PlaceTypes} from '../../const.js';
 
 
 class Map extends PureComponent {
@@ -9,19 +10,22 @@ class Map extends PureComponent {
 
     this._mapRef = createRef();
     this._map = null;
+    this._markers = null;
   }
 
   componentDidMount() {
-    const city = [52.38333, 4.9];
-    const zoom = 12;
+    const {
+      center,
+      zoom,
+    } = this.props;
 
     this._map = leaflet.map(this._mapRef.current, {
-      center: city,
+      center,
       zoom,
       zoomControl: false,
       marker: true
     });
-    this._map.setView(city, zoom);
+    this._map.setView(center, zoom);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
@@ -56,20 +60,43 @@ class Map extends PureComponent {
       iconUrl: `img/pin.svg`,
       iconSize: [30, 40]
     });
-    const offerCords = [52.3709553943508, 4.89309666406198];
-    leaflet
-      .marker(offerCords, {icon})
-      .addTo(this._map);
+
+    this._markers = this.props.offers
+      .map((offer) => {
+        leaflet
+          .marker(offer.coordinates, {icon})
+          .addTo(this._map);
+      });
   }
 
   _removeMarkers() {
-
+    this._markers.forEach((marker) => marker.remove());
+    this._markers = null;
   }
 }
 
 
 Map.propTypes = {
-
+  center: PropTypes.arrayOf(PropTypes.number).isRequired,
+  zoom: PropTypes.number.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape({
+    bedroomsCount: PropTypes.number.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+    descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
+    features: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      isSuper: PropTypes.bool.isRequired,
+    }).isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    maxAdultsCount: PropTypes.number.isRequired,
+    photos: PropTypes.arrayOf(PropTypes.string).isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
+  })).isRequired,
 };
 
 
