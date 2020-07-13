@@ -34,7 +34,7 @@ class App extends PureComponent {
           </Route>
           <Route exact path="/property">
             <Property
-              offer={offers[1]}
+              offer={offers[2]}
             />
           </Route>
         </Switch>
@@ -82,6 +82,7 @@ class App extends PureComponent {
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
     bedroomsCount: PropTypes.number.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
     descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     host: PropTypes.shape({

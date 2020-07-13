@@ -33,11 +33,11 @@ class PlaceCard extends PureComponent {
         onMouseEnter={onCardMouseEnter}
       >
         {
-          isPremium ?
+          isPremium && (
             <div className="place-card__mark">
               <span>Premium</span>
-            </div> :
-            null
+            </div>
+          )
         }
 
         <div className="cities__image-wrapper place-card__image-wrapper">
@@ -87,6 +87,7 @@ class PlaceCard extends PureComponent {
 PlaceCard.propTypes = {
   offer: PropTypes.shape({
     bedroomsCount: PropTypes.number.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
     descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     host: PropTypes.shape({

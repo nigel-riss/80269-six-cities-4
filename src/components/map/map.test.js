@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from './app.jsx';
+import Map from './map.jsx';
 import {PlaceTypes} from '../../const.js';
 
 
-const offersMock = [
+const mock = [
   {
     photos: [
       `apartment-01.jpg`,
@@ -161,10 +161,12 @@ const offersMock = [
 ];
 
 
-it(`App renders correctly`, () => {
+it(`Map renders correctly`, () => {
   const tree = renderer
-    .create(<App
-      offers={offersMock}
+    .create(<Map
+      center={[52.38333, 4.9]}
+      zoom={12}
+      offers={mock}
     />, {
       createNodeMock: () => {
         return document.createElement(`div`);

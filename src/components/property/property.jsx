@@ -76,11 +76,11 @@ class Property extends PureComponent {
             <div className="property__container container">
               <div className="property__wrapper">
                 {
-                  isPremium ?
+                  isPremium && (
                     <div className="property__mark">
                       <span>Premium</span>
-                    </div> :
-                    null
+                    </div>
+                  )
                 }
                 <div className="property__name-wrapper">
                   <h1 className="property__name">
@@ -336,6 +336,7 @@ class Property extends PureComponent {
 Property.propTypes = {
   offer: PropTypes.shape({
     bedroomsCount: PropTypes.number.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
     descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     host: PropTypes.shape({
