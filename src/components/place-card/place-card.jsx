@@ -14,6 +14,7 @@ class PlaceCard extends PureComponent {
       offer,
       onCardMouseEnter,
       onCardTitleClick,
+      isNearPlaces,
     } = this.props;
 
     const {
@@ -29,7 +30,12 @@ class PlaceCard extends PureComponent {
     const ratingWidth = `${Math.round(rating) * 20}%`;
 
     return (
-      <article className="cities__place-card place-card"
+      <article
+        className={`${isNearPlaces ?
+          `near-places__card` :
+          `cities__place-card`
+        }
+        place-card`}
         onMouseEnter={onCardMouseEnter}
       >
         {
@@ -40,7 +46,13 @@ class PlaceCard extends PureComponent {
           )
         }
 
-        <div className="cities__image-wrapper place-card__image-wrapper">
+        <div
+          className={`${isNearPlaces ?
+            `near-places__image-wrapper` :
+            `cities__image-wrapper`
+          }
+          place-card__image-wrapper`}
+        >
           <a href="#">
             <img className="place-card__image" src={`img/${photo}`} width="260" height="200" alt="Place image" />
           </a>
@@ -88,6 +100,7 @@ PlaceCard.propTypes = {
   offer: OfferTypes.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
   onCardMouseEnter: PropTypes.func.isRequired,
+  isNearPlaces: PropTypes.bool,
 };
 
 export default PlaceCard;
