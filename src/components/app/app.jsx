@@ -81,17 +81,17 @@ class App extends PureComponent {
 
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
-    bedroomsCount: PropTypes.number.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+    bedrooms: PropTypes.number.isRequired,
+    location: PropTypes.arrayOf(PropTypes.number).isRequired,
     descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     host: PropTypes.shape({
       name: PropTypes.string.isRequired,
       avatar: PropTypes.string.isRequired,
-      isSuper: PropTypes.bool.isRequired,
+      inPro: PropTypes.bool.isRequired,
     }).isRequired,
     isPremium: PropTypes.bool.isRequired,
-    maxAdultsCount: PropTypes.number.isRequired,
+    maxAdults: PropTypes.number.isRequired,
     photos: PropTypes.arrayOf(PropTypes.string).isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,

@@ -20,8 +20,8 @@ class Property extends PureComponent {
       descriptionLines,
       rating,
       type,
-      bedroomsCount,
-      maxAdultsCount,
+      bedrooms,
+      maxAdults,
       price,
       host,
       features,
@@ -30,12 +30,12 @@ class Property extends PureComponent {
     const {
       name: hostName,
       avatar,
-      isSuper,
+      inPro,
     } = host;
 
     const ratingWidth = `${Math.round(rating) * 20}%`;
-    const bedroomsText = `${bedroomsCount} Bedroom${bedroomsCount !== 1 ? `s` : ``}`;
-    const maxAdultsText = `Max ${maxAdultsCount} adult${maxAdultsCount !== 1 ? `s` : ``}`;
+    const bedroomsText = `${bedrooms} Bedroom${bedrooms !== 1 ? `s` : ``}`;
+    const maxAdultsText = `Max ${maxAdults} adult${maxAdults !== 1 ? `s` : ``}`;
 
     return (
       <div className="page">
@@ -132,7 +132,7 @@ class Property extends PureComponent {
                 <div className="property__host">
                   <h2 className="property__host-title">Meet the host</h2>
                   <div className="property__host-user user">
-                    <div className={`property__avatar-wrapper ${isSuper ? `property__avatar-wrapper--pro` : ``} user__avatar-wrapper`}>
+                    <div className={`property__avatar-wrapper ${inPro ? `property__avatar-wrapper--pro` : ``} user__avatar-wrapper`}>
                       <img className="property__avatar user__avatar" src={`img/${avatar}`} width="74" height="74" alt="Host avatar"/>
                     </div>
                     <span className="property__user-name">
@@ -316,17 +316,17 @@ class Property extends PureComponent {
 
 Property.propTypes = {
   offer: PropTypes.shape({
-    bedroomsCount: PropTypes.number.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+    bedrooms: PropTypes.number.isRequired,
+    location: PropTypes.arrayOf(PropTypes.number).isRequired,
     descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     host: PropTypes.shape({
       name: PropTypes.string.isRequired,
       avatar: PropTypes.string.isRequired,
-      isSuper: PropTypes.bool.isRequired,
+      inPro: PropTypes.bool.isRequired,
     }).isRequired,
     isPremium: PropTypes.bool.isRequired,
-    maxAdultsCount: PropTypes.number.isRequired,
+    maxAdults: PropTypes.number.isRequired,
     photos: PropTypes.arrayOf(PropTypes.string).isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,

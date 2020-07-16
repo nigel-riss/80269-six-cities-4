@@ -71,7 +71,7 @@ class Map extends PureComponent {
     this._markers = this.props.offers
       .map((offer) => {
         leaflet
-          .marker(offer.coordinates, {icon})
+          .marker(offer.location, {icon})
           .addTo(this._map);
       });
   }
@@ -87,17 +87,17 @@ Map.propTypes = {
   center: PropTypes.arrayOf(PropTypes.number).isRequired,
   zoom: PropTypes.number.isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape({
-    bedroomsCount: PropTypes.number.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+    bedrooms: PropTypes.number.isRequired,
+    location: PropTypes.arrayOf(PropTypes.number).isRequired,
     descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     host: PropTypes.shape({
       name: PropTypes.string.isRequired,
       avatar: PropTypes.string.isRequired,
-      isSuper: PropTypes.bool.isRequired,
+      inPro: PropTypes.bool.isRequired,
     }).isRequired,
     isPremium: PropTypes.bool.isRequired,
-    maxAdultsCount: PropTypes.number.isRequired,
+    maxAdults: PropTypes.number.isRequired,
     photos: PropTypes.arrayOf(PropTypes.string).isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
