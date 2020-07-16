@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReviewItem from '../review-item/review-item.jsx';
+import ReviewTypes from '../../types/review.js';
 
 
 const ReviewList = (props) => {
@@ -20,18 +21,7 @@ const ReviewList = (props) => {
 
 
 ReviewList.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.shape({
-    comment: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    user: {
-      avatarUrl: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-      isPro: PropTypes.bool.isRequired,
-      name: PropTypes.string.isRequired,
-    },
-  })).isRequired,
+  reviews: PropTypes.arrayOf(ReviewTypes).isRequired,
 };
 
 

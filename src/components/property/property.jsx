@@ -1,8 +1,7 @@
 import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
-import {PlaceTypes} from '../../const.js';
 import ReviewList from '../review-list/review-list.jsx';
 import reviews from '../../mocks/reviews.js';
+import OfferTypes from '../../types/offer.js';
 
 
 class Property extends PureComponent {
@@ -150,7 +149,9 @@ class Property extends PureComponent {
                   </div>
                 </div>
                 <section className="property__reviews reviews">
-                  <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
+                  <h2 className="reviews__title">Reviews &middot;
+                    <span className="reviews__amount">{reviews.length}</span>
+                  </h2>
                   <ReviewList
                     reviews={reviews}
                   />
@@ -315,24 +316,7 @@ class Property extends PureComponent {
 
 
 Property.propTypes = {
-  offer: PropTypes.shape({
-    bedrooms: PropTypes.number.isRequired,
-    location: PropTypes.arrayOf(PropTypes.number).isRequired,
-    descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
-    features: PropTypes.arrayOf(PropTypes.string).isRequired,
-    host: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-      inPro: PropTypes.bool.isRequired,
-    }).isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    maxAdults: PropTypes.number.isRequired,
-    photos: PropTypes.arrayOf(PropTypes.string).isRequired,
-    price: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
-  }).isRequired,
+  offer: OfferTypes.isRequired,
 };
 
 export default Property;
