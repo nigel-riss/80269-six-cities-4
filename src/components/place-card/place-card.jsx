@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import {PlaceTypes} from '../../const.js';
+import OfferTypes from '../../types/offer.js';
 
 
 class PlaceCard extends PureComponent {
@@ -14,6 +14,7 @@ class PlaceCard extends PureComponent {
       offer,
       onCardMouseEnter,
       onCardTitleClick,
+      isNearPlaces,
     } = this.props;
 
     const {
@@ -29,7 +30,12 @@ class PlaceCard extends PureComponent {
     const ratingWidth = `${Math.round(rating) * 20}%`;
 
     return (
-      <article className="cities__place-card place-card"
+      <article
+        className={`${isNearPlaces ?
+          `near-places__card` :
+          `cities__place-card`
+        }
+        place-card`}
         onMouseEnter={onCardMouseEnter}
       >
         {
@@ -40,7 +46,13 @@ class PlaceCard extends PureComponent {
           )
         }
 
-        <div className="cities__image-wrapper place-card__image-wrapper">
+        <div
+          className={`${isNearPlaces ?
+            `near-places__image-wrapper` :
+            `cities__image-wrapper`
+          }
+          place-card__image-wrapper`}
+        >
           <a href="#">
             <img className="place-card__image" src={`img/${photo}`} width="260" height="200" alt="Place image" />
           </a>
@@ -85,26 +97,10 @@ class PlaceCard extends PureComponent {
 
 
 PlaceCard.propTypes = {
-  offer: PropTypes.shape({
-    bedroomsCount: PropTypes.number.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-    descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
-    features: PropTypes.arrayOf(PropTypes.string).isRequired,
-    host: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-      isSuper: PropTypes.bool.isRequired,
-    }).isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    maxAdultsCount: PropTypes.number.isRequired,
-    photos: PropTypes.arrayOf(PropTypes.string).isRequired,
-    price: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
-  }).isRequired,
+  offer: OfferTypes.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
   onCardMouseEnter: PropTypes.func.isRequired,
+  isNearPlaces: PropTypes.bool,
 };
 
 export default PlaceCard;

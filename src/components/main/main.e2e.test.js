@@ -25,12 +25,12 @@ const offersMock = [
       `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
       `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     ],
-    bedroomsCount: 3,
-    maxAdultsCount: 4,
+    bedrooms: 3,
+    maxAdults: 4,
     host: {
       name: `Yuriy`,
       avatar: `avatar-max.jpg`,
-      isSuper: true,
+      inPro: true,
     },
     features: [
       `Wi-Fi`,
@@ -44,7 +44,7 @@ const offersMock = [
       `Cabel TV`,
       `Fridge`,
     ],
-    coordinates: [52.3909553943508, 4.85309666406198],
+    location: [52.3909553943508, 4.85309666406198],
   }, {
     photos: [
       `apartment-02.jpg`,
@@ -63,12 +63,12 @@ const offersMock = [
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
       `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     ],
-    bedroomsCount: 1,
-    maxAdultsCount: 2,
+    bedrooms: 1,
+    maxAdults: 2,
     host: {
       name: `Anonymus`,
       avatar: `avatar.svg`,
-      isSuper: false,
+      inPro: false,
     },
     features: [
       `Wi-Fi`,
@@ -80,7 +80,7 @@ const offersMock = [
       `Dishwasher`,
       `Fridge`,
     ],
-    coordinates: [52.369553943508, 4.85309666406198],
+    location: [52.369553943508, 4.85309666406198],
   }, {
     photos: [
       `apartment-03.jpg`,
@@ -99,12 +99,12 @@ const offersMock = [
       `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
       `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     ],
-    bedroomsCount: 3,
-    maxAdultsCount: 2,
+    bedrooms: 3,
+    maxAdults: 2,
     host: {
       name: `Angelina`,
       avatar: `avatar-angelina.jpg`,
-      isSuper: true,
+      inPro: true,
     },
     features: [
       `Wi-Fi`,
@@ -118,7 +118,7 @@ const offersMock = [
       `Cabel TV`,
       `Fridge`,
     ],
-    coordinates: [52.3909553943508, 4.929309666406198],
+    location: [52.3909553943508, 4.929309666406198],
   }, {
     photos: [
       `room.jpg`,
@@ -138,12 +138,12 @@ const offersMock = [
       `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
       `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     ],
-    bedroomsCount: 3,
-    maxAdultsCount: 2,
+    bedrooms: 3,
+    maxAdults: 2,
     host: {
       name: `Yuriy`,
       avatar: `avatar-max.jpg`,
-      isSuper: true,
+      inPro: true,
     },
     features: [
       `Wi-Fi`,
@@ -157,7 +157,7 @@ const offersMock = [
       `Cabel TV`,
       `Fridge`,
     ],
-    coordinates: [52.3809553943508, 4.939309666406198],
+    location: [52.3809553943508, 4.939309666406198],
   },
 ];
 

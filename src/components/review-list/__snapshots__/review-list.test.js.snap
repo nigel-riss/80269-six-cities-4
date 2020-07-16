@@ -1,0 +1,553 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewList renders correctly for Main component 1`] = `
+<ul
+  className="reviews__list"
+>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="img/avatar-max.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Max
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "80%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2019-05-08T14:13:56.569Z"
+      >
+        May 2019
+      </time>
+    </div>
+  </li>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="img/avatar.svg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Yuriy
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        Men are simple things. They can survive a whole weekend with only three things: beer, boxer shorts and batteries for the remote control.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2020-05-08T14:13:56.569Z"
+      >
+        May 2020
+      </time>
+    </div>
+  </li>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="img/avatar-angelina.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Angelina
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "40%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        I see you have something to talk about. Well, I have something to shout about. Infact something to sing about. But I'll just keep quiet and let you carry on.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2020-07-18T14:13:56.569Z"
+      >
+        July 2020
+      </time>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`ReviewList renders correctly for Property component 1`] = `
+<ul
+  className="reviews__list"
+>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="img/avatar-max.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Max
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "80%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2019-05-08T14:13:56.569Z"
+      >
+        May 2019
+      </time>
+    </div>
+  </li>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="img/avatar.svg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Yuriy
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        Men are simple things. They can survive a whole weekend with only three things: beer, boxer shorts and batteries for the remote control.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2020-05-08T14:13:56.569Z"
+      >
+        May 2020
+      </time>
+    </div>
+  </li>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="img/avatar-angelina.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Angelina
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "40%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        I see you have something to talk about. Well, I have something to shout about. Infact something to sing about. But I'll just keep quiet and let you carry on.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2020-07-18T14:13:56.569Z"
+      >
+        July 2020
+      </time>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`ReviewList renders correctly without inNearPlaces passed 1`] = `
+<ul
+  className="reviews__list"
+>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="img/avatar-max.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Max
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "80%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2019-05-08T14:13:56.569Z"
+      >
+        May 2019
+      </time>
+    </div>
+  </li>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="img/avatar.svg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Yuriy
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        Men are simple things. They can survive a whole weekend with only three things: beer, boxer shorts and batteries for the remote control.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2020-05-08T14:13:56.569Z"
+      >
+        May 2020
+      </time>
+    </div>
+  </li>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="img/avatar-angelina.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Angelina
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "40%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        I see you have something to talk about. Well, I have something to shout about. Infact something to sing about. But I'll just keep quiet and let you carry on.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2020-07-18T14:13:56.569Z"
+      >
+        July 2020
+      </time>
+    </div>
+  </li>
+</ul>
+`;

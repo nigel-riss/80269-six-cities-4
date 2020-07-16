@@ -1,7 +1,7 @@
 import React, {PureComponent, createRef} from 'react';
 import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
-import {PlaceTypes} from '../../const.js';
+import OfferTypes from '../../types/offer.js';
 
 
 class Map extends PureComponent {
@@ -71,7 +71,7 @@ class Map extends PureComponent {
     this._markers = this.props.offers
       .map((offer) => {
         leaflet
-          .marker(offer.coordinates, {icon})
+          .marker(offer.location, {icon})
           .addTo(this._map);
       });
   }
@@ -86,24 +86,7 @@ class Map extends PureComponent {
 Map.propTypes = {
   center: PropTypes.arrayOf(PropTypes.number).isRequired,
   zoom: PropTypes.number.isRequired,
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    bedroomsCount: PropTypes.number.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-    descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
-    features: PropTypes.arrayOf(PropTypes.string).isRequired,
-    host: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-      isSuper: PropTypes.bool.isRequired,
-    }).isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    maxAdultsCount: PropTypes.number.isRequired,
-    photos: PropTypes.arrayOf(PropTypes.string).isRequired,
-    price: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(Object.values(PlaceTypes)).isRequired,
-  })).isRequired,
+  offers: PropTypes.arrayOf(OfferTypes).isRequired,
 };
 
 

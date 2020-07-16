@@ -21,12 +21,12 @@ const offerMock = {
     `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
     `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
   ],
-  bedroomsCount: 3,
-  maxAdultsCount: 2,
+  bedrooms: 3,
+  maxAdults: 2,
   host: {
     name: `Angelina`,
     avatar: `avatar-angelina.jpg`,
-    isSuper: true,
+    inPro: true,
   },
   features: [
     `Wi-Fi`,
@@ -40,7 +40,7 @@ const offerMock = {
     `Cabel TV`,
     `Fridge`,
   ],
-  coordinates: [52.3909553943508, 4.85309666406198],
+  location: [52.3909553943508, 4.85309666406198],
 };
 
 
@@ -48,7 +48,11 @@ it(`Property component renders correncty`, () => {
   const tree = renderer
     .create(<Property
       offer={offerMock}
-    />)
+    />, {
+      createNodeMock: () => {
+        return document.createElement(`div`);
+      }
+    })
     .toJSON();
 
   expect(tree).toMatchSnapshot();

@@ -2,6 +2,15 @@ import {PlaceTypes} from '../const';
 
 export default [
   {
+    id: 1,
+    city: {
+      location: {
+        latitude: 52.370216,
+        longitude: 4.895168,
+        zoom: 10,
+      },
+      name: `Amsterdam`,
+    },
     photos: [
       `apartment-01.jpg`,
       `room.jpg`,
@@ -20,12 +29,12 @@ export default [
       `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
       `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     ],
-    bedroomsCount: 3,
-    maxAdultsCount: 4,
+    bedrooms: 3,
+    maxAdults: 4,
     host: {
       name: `Yuriy`,
       avatar: `avatar-max.jpg`,
-      isSuper: true,
+      inPro: true,
     },
     features: [
       `Wi-Fi`,
@@ -39,8 +48,17 @@ export default [
       `Cabel TV`,
       `Fridge`,
     ],
-    coordinates: [52.3909553943508, 4.85309666406198],
+    location: [52.3909553943508, 4.85309666406198],
   }, {
+    id: 2,
+    city: {
+      location: {
+        latitude: 52.370216,
+        longitude: 4.895168,
+        zoom: 10,
+      },
+      name: `Amsterdam`,
+    },
     photos: [
       `apartment-02.jpg`,
       `room.jpg`,
@@ -58,12 +76,12 @@ export default [
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
       `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     ],
-    bedroomsCount: 1,
-    maxAdultsCount: 2,
+    bedrooms: 1,
+    maxAdults: 2,
     host: {
       name: `Anonymus`,
       avatar: `avatar.svg`,
-      isSuper: false,
+      inPro: false,
     },
     features: [
       `Wi-Fi`,
@@ -75,8 +93,17 @@ export default [
       `Dishwasher`,
       `Fridge`,
     ],
-    coordinates: [52.369553943508, 4.85309666406198],
+    location: [52.369553943508, 4.85309666406198],
   }, {
+    id: 3,
+    city: {
+      location: {
+        latitude: 52.370216,
+        longitude: 4.895168,
+        zoom: 10,
+      },
+      name: `Amsterdam`,
+    },
     photos: [
       `apartment-03.jpg`,
       `room.jpg`,
@@ -94,12 +121,12 @@ export default [
       `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
       `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     ],
-    bedroomsCount: 3,
-    maxAdultsCount: 2,
+    bedrooms: 3,
+    maxAdults: 2,
     host: {
       name: `Angelina`,
       avatar: `avatar-angelina.jpg`,
-      isSuper: true,
+      inPro: true,
     },
     features: [
       `Wi-Fi`,
@@ -113,8 +140,17 @@ export default [
       `Cabel TV`,
       `Fridge`,
     ],
-    coordinates: [52.3909553943508, 4.929309666406198],
+    location: [52.3909553943508, 4.929309666406198],
   }, {
+    id: 4,
+    city: {
+      location: {
+        latitude: 52.370216,
+        longitude: 4.895168,
+        zoom: 10,
+      },
+      name: `Amsterdam`,
+    },
     photos: [
       `room.jpg`,
       `apartment-01.jpg`,
@@ -133,12 +169,12 @@ export default [
       `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
       `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     ],
-    bedroomsCount: 3,
-    maxAdultsCount: 2,
+    bedrooms: 3,
+    maxAdults: 2,
     host: {
       name: `Yuriy`,
       avatar: `avatar-max.jpg`,
-      isSuper: true,
+      inPro: true,
     },
     features: [
       `Wi-Fi`,
@@ -152,6 +188,6 @@ export default [
       `Cabel TV`,
       `Fridge`,
     ],
-    coordinates: [52.3809553943508, 4.939309666406198],
+    location: [52.3809553943508, 4.939309666406198],
   },
 ];
