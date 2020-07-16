@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewTypes from '../../types/review.js';
+import {getMonthYear} from '../../utils/time.js';
 
 
 const ReviewItem = (props) => {
@@ -38,7 +39,7 @@ const ReviewItem = (props) => {
           {comment}
         </p>
         <time className="reviews__time" dateTime={date}>
-          {/* {`${commentDate.getM} ${}`} */}
+          {getMonthYear(date)}
         </time>
       </div>
     </li>
