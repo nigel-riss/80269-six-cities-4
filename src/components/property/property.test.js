@@ -48,7 +48,11 @@ it(`Property component renders correncty`, () => {
   const tree = renderer
     .create(<Property
       offer={offerMock}
-    />)
+    />, {
+      createNodeMock: () => {
+        return document.createElement(`div`);
+      }
+    })
     .toJSON();
 
   expect(tree).toMatchSnapshot();

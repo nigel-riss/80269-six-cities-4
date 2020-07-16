@@ -17,12 +17,36 @@ const mock = {
 };
 
 
-it(`ReviewItem renders correctly`, () => {
-  const tree = renderer
-    .create(<ReviewItem
-      review={mock}
-    />)
-    .toJSON();
+describe(`ReviewItem renders correctly`, () => {
+  it(`without inNearPlaces passed`, () => {
+    const tree = renderer
+      .create(<ReviewItem
+        review={mock}
+      />)
+      .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`for Property component`, () => {
+    const tree = renderer
+      .create(<ReviewItem
+        review={mock}
+        isNearPlaces={true}
+      />)
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`for Main component`, () => {
+    const tree = renderer
+      .create(<ReviewItem
+        review={mock}
+        isNearPlaces={false}
+      />)
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });

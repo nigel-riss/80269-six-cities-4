@@ -43,12 +43,36 @@ const mock = [
 ];
 
 
-it(`ReviewList renders correctly`, () => {
-  const tree = renderer
-    .create(<ReviewList
-      reviews={mock}
-    />)
-    .toJSON();
+describe(`ReviewList renders correctly`, () => {
+  it(`without inNearPlaces passed`, () => {
+    const tree = renderer
+      .create(<ReviewList
+        reviews={mock}
+      />)
+      .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`for Property component`, () => {
+    const tree = renderer
+      .create(<ReviewList
+        reviews={mock}
+        isNearPlaces={true}
+      />)
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`for Main component`, () => {
+    const tree = renderer
+      .create(<ReviewList
+        reviews={mock}
+        isNearPlaces={false}
+      />)
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });
