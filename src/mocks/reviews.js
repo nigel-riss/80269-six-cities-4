@@ -5,7 +5,7 @@ export default [
     id: 1,
     rating: 4,
     user: {
-      avatarUrl: `img/avatar-max.png`,
+      avatarUrl: `img/avatar-max.jpg`,
       id: 4,
       isPro: false,
       name: `Max`,
@@ -29,7 +29,7 @@ export default [
     id: 3,
     rating: 2.3,
     user: {
-      avatarUrl: `img/avatar-angelina.png`,
+      avatarUrl: `img/avatar-angelina.jpg`,
       id: 6,
       isPro: true,
       name: `Angelina`,
