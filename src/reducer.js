@@ -1,10 +1,10 @@
-import offers from './mocks/offers.js';
+import mockOffers from './mocks/offers.js';
 import {extend} from './utils/common.js';
 
 
 const initialState = {
   city: `Amsterdam`,
-  offers,
+  offers: mockOffers,
 };
 
 const ActionType = {
@@ -44,6 +44,8 @@ const reducer = (state = initialState, action) => {
         offers: action.payload,
       });
   }
+
+  return state;
 };
 
 
