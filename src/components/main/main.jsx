@@ -7,10 +7,6 @@ import OfferTypes from '../../types/offer.js';
 import {getCityList} from '../../utils/common.js';
 
 
-const MAP_CENTER = [52.38333, 4.9];
-const MAP_ZOOM = 12;
-
-
 class Main extends PureComponent {
   constructor(props) {
     super(props);
@@ -65,7 +61,7 @@ class Main extends PureComponent {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offers.length} places to stay in Amsterdam</b>
+                <b className="places__found">{activeOffers.length} places to stay in {activeCity}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by </span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -95,8 +91,11 @@ class Main extends PureComponent {
               <div className="cities__right-section">
                 <section className="cities__map map">
                   <Map
-                    center={MAP_CENTER}
-                    zoom={MAP_ZOOM}
+                    center={[
+                      activeOffers[0].city.location.latitude,
+                      activeOffers[0].city.location.longitude,
+                    ]}
+                    zoom={activeOffers[0].city.location.zoom}
                     offers={activeOffers}
                   />
                 </section>
@@ -111,8 +110,11 @@ class Main extends PureComponent {
 
 
 Main.propTypes = {
+  activeCity: PropTypes.string.isRequired,
+  activeOffers: PropTypes.arrayOf(OfferTypes).isRequired,
   offers: PropTypes.arrayOf(OfferTypes).isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
+  onCityNameClick: PropTypes.func.isRequired,
 };
 
 

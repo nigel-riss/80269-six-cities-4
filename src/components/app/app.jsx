@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer.js'; 
+import {ActionCreator} from '../../reducer.js';
 import Main from '../main/main.jsx';
 import Property from '../property/property.jsx';
 import PropTypes from 'prop-types';
@@ -91,7 +91,10 @@ class App extends PureComponent {
 
 
 App.propTypes = {
+  activeCity: PropTypes.string.isRequired,
+  activeOffers: PropTypes.arrayOf(OfferTypes).isRequired,
   offers: PropTypes.arrayOf(OfferTypes).isRequired,
+  onCityNameClick: PropTypes.func.isRequired,
 };
 
 

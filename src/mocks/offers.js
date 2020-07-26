@@ -236,7 +236,7 @@ export default [
       `Cabel TV`,
       `Fridge`,
     ],
-    location: [48.764716, 2.249014],
+    location: [48.804716, 2.309014],
   }, {
     id: 6,
     city: {
@@ -281,7 +281,7 @@ export default [
       `Dishwasher`,
       `Fridge`,
     ],
-    location: [48.764716, 2.449014],
+    location: [48.824716, 2.409014],
   }, {
     id: 7,
     city: {
@@ -328,7 +328,7 @@ export default [
       `Cabel TV`,
       `Fridge`,
     ],
-    location: [48.964716, 2.249014],
+    location: [48.874716, 2.299014],
   }, {
     id: 8,
     city: {
@@ -376,7 +376,7 @@ export default [
       `Cabel TV`,
       `Fridge`,
     ],
-    location: [48.964716, 2.449014],
+    location: [48.884716, 2.409014],
   }, {
     id: 9,
     city: {

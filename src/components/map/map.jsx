@@ -22,6 +22,13 @@ class Map extends PureComponent {
   componentDidUpdate() {
     this._removeMarkers();
     this._addMarkers();
+
+    const {
+      center,
+      zoom,
+    } = this.props;
+
+    this._map.setView(center, zoom);
   }
 
   componentWillUnmount() {
@@ -74,13 +81,9 @@ class Map extends PureComponent {
           .marker(offer.location, {icon})
           .addTo(this._map)
       ));
-
-    console.log(this._markers);
   }
 
   _removeMarkers() {
-    console.log(this._markers);
-
     this._markers.forEach((marker) => marker.remove());
     this._markers = null;
   }

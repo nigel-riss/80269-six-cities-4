@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
 
@@ -40,11 +40,11 @@ class CityList extends PureComponent {
 }
 
 
-// TODO: specify PropTypes here
 CityList.propTypes = {
   activeCity: PropTypes.string.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   onCityNameClick: PropTypes.func.isRequired,
 };
+
 
 export default CityList;
