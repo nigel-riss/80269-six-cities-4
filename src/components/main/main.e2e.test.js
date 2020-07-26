@@ -7,119 +7,15 @@ import {PlaceTypes} from '../../const.js';
 
 const offersMock = [
   {
-    photos: [
-      `apartment-01.jpg`,
-      `room.jpg`,
-      `apartment-02.jpg`,
-      `apartment-03.jpg`,
-      `studio-01.jpg`,
-      `apartment-01.jpg`,
-    ],
-    isPremium: false,
-    price: 70,
-    title: `Canal View Prinsengracht`,
-    type: PlaceTypes.HOTEL,
-    rating: 3.7,
-    descriptionLines: [
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-      `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-      `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-    ],
-    bedrooms: 3,
-    maxAdults: 4,
-    host: {
-      name: `Yuriy`,
-      avatar: `avatar-max.jpg`,
-      inPro: true,
+    id: 8,
+    city: {
+      location: {
+        latitude: 48.864716,
+        longitude: 2.349014,
+        zoom: 11,
+      },
+      name: `Paris`,
     },
-    features: [
-      `Wi-Fi`,
-      `Washing machine`,
-      `Towels`,
-      `Heating`,
-      `Coffee machine`,
-      `Baby seat`,
-      `Kitchen`,
-      `Dishwasher`,
-      `Cabel TV`,
-      `Fridge`,
-    ],
-    location: [52.3909553943508, 4.85309666406198],
-  }, {
-    photos: [
-      `apartment-02.jpg`,
-      `room.jpg`,
-      `apartment-01.jpg`,
-      `apartment-03.jpg`,
-      `studio-01.jpg`,
-      `apartment-01.jpg`,
-    ],
-    isPremium: false,
-    price: 150,
-    title: `Nice, cozy, warm big bed apartment`,
-    type: PlaceTypes.APARTMENT,
-    rating: 4.7,
-    descriptionLines: [
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-      `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-    ],
-    bedrooms: 1,
-    maxAdults: 2,
-    host: {
-      name: `Anonymus`,
-      avatar: `avatar.svg`,
-      inPro: false,
-    },
-    features: [
-      `Wi-Fi`,
-      `Ultra hi-end PC`,
-      `Towels`,
-      `Heating`,
-      `Coffee machine`,
-      `Kitchen`,
-      `Dishwasher`,
-      `Fridge`,
-    ],
-    location: [52.369553943508, 4.85309666406198],
-  }, {
-    photos: [
-      `apartment-03.jpg`,
-      `room.jpg`,
-      `apartment-01.jpg`,
-      `apartment-02.jpg`,
-      `studio-01.jpg`,
-      `apartment-01.jpg`,
-    ],
-    isPremium: true,
-    price: 300,
-    title: `Beautiful & luxurious house at great location`,
-    type: PlaceTypes.HOUSE,
-    rating: 4.5,
-    descriptionLines: [
-      `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-      `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-    ],
-    bedrooms: 3,
-    maxAdults: 2,
-    host: {
-      name: `Angelina`,
-      avatar: `avatar-angelina.jpg`,
-      inPro: true,
-    },
-    features: [
-      `Wi-Fi`,
-      `Washing machine`,
-      `Towels`,
-      `Heating`,
-      `Coffee machine`,
-      `Baby seat`,
-      `Kitchen`,
-      `Dishwasher`,
-      `Cabel TV`,
-      `Fridge`,
-    ],
-    location: [52.3909553943508, 4.929309666406198],
-  }, {
     photos: [
       `room.jpg`,
       `apartment-01.jpg`,
@@ -157,7 +53,100 @@ const offersMock = [
       `Cabel TV`,
       `Fridge`,
     ],
-    location: [52.3809553943508, 4.939309666406198],
+    location: [48.884716, 2.409014],
+  }, {
+    id: 9,
+    city: {
+      location: {
+        latitude: 48.864716,
+        longitude: 2.349014,
+        zoom: 11,
+      },
+      name: `Paris`,
+    },
+    photos: [
+      `apartment-01.jpg`,
+      `room.jpg`,
+      `apartment-02.jpg`,
+      `apartment-03.jpg`,
+      `studio-01.jpg`,
+      `apartment-01.jpg`,
+    ],
+    isPremium: false,
+    price: 70,
+    title: `Paris Canal View Prinsengracht`,
+    type: PlaceTypes.HOTEL,
+    rating: 3.7,
+    descriptionLines: [
+      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+      `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    ],
+    bedrooms: 3,
+    maxAdults: 4,
+    host: {
+      name: `Yuriy`,
+      avatar: `avatar-max.jpg`,
+      inPro: true,
+    },
+    features: [
+      `Wi-Fi`,
+      `Washing machine`,
+      `Towels`,
+      `Heating`,
+      `Coffee machine`,
+      `Baby seat`,
+      `Kitchen`,
+      `Dishwasher`,
+      `Cabel TV`,
+      `Fridge`,
+    ],
+    location: [50.935173, 6.953101],
+  }, {
+    id: 10,
+    city: {
+      location: {
+        latitude: 50.8407,
+        longitude: 4.3542,
+        zoom: 11,
+      },
+      name: `Brussels`,
+    },
+    photos: [
+      `apartment-02.jpg`,
+      `room.jpg`,
+      `apartment-01.jpg`,
+      `apartment-03.jpg`,
+      `studio-01.jpg`,
+      `apartment-01.jpg`,
+    ],
+    isPremium: false,
+    price: 150,
+    title: `Paris Nice, cozy, warm big bed apartment`,
+    type: PlaceTypes.APARTMENT,
+    rating: 4.7,
+    descriptionLines: [
+      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    ],
+    bedrooms: 1,
+    maxAdults: 2,
+    host: {
+      name: `Anonymus`,
+      avatar: `avatar.svg`,
+      inPro: false,
+    },
+    features: [
+      `Wi-Fi`,
+      `Ultra hi-end PC`,
+      `Towels`,
+      `Heating`,
+      `Coffee machine`,
+      `Kitchen`,
+      `Dishwasher`,
+      `Fridge`,
+    ],
+    location: [50.8407, 4.3542],
   },
 ];
 
@@ -171,8 +160,11 @@ describe(`PlaceCard title click tests`, () => {
   const handleCardTitleClick = jest.fn();
 
   const main = mount(<Main
-    onCardTitleClick={handleCardTitleClick}
+    activeCity={`Paris`}
+    activeOffers={offersMock.slice(0, 2)}
     offers={offersMock}
+    onCityNameClick={() => {}}
+    onCardTitleClick={handleCardTitleClick}
   />);
 
   const cardTitles = main.find(`h2.place-card__name a`);
@@ -184,14 +176,14 @@ describe(`PlaceCard title click tests`, () => {
       cardTitle.simulate(`click`);
     });
 
-    expect(handleCardTitleClick).toHaveBeenCalledTimes(offersMock.length);
+    expect(handleCardTitleClick).toHaveBeenCalledTimes(2);
   });
 
   it(`PlaceCard title click handler recieves correct data when triggered`, () => {
-    const cardThreeTitle = cardTitles.at(2);
+    const cardTwoTitle = cardTitles.at(1);
 
-    cardThreeTitle.simulate(`click`);
+    cardTwoTitle.simulate(`click`);
 
-    expect(handleCardTitleClick.mock.calls[offersMock.length][0]).toMatchObject(offersMock[2]);
+    expect(handleCardTitleClick.mock.calls[1][0]).toMatchObject(offersMock[1]);
   });
 });

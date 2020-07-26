@@ -25,21 +25,19 @@ class PlaceList extends PureComponent {
           `cities__places-list tabs__content`}
         places__list`}
       >
-        {offers.map((offer, i) => {
-          return (
-            <PlaceCard
-              offer={offer}
-              key={`${i}-${name}`}
-              onCardTitleClick={() => {
-                onCardTitleClick(offer);
-              }}
-              onCardMouseEnter={() => {
-                this._handlePlaceCardMouseEnter(offer);
-              }}
-              isNearPlaces={isNearPlaces}
-            />
-          );
-        })}
+        {offers.map((offer, i) => (
+          <PlaceCard
+            offer={offer}
+            key={`${i}-${name}`}
+            onCardTitleClick={() => {
+              onCardTitleClick(offer);
+            }}
+            onCardMouseEnter={() => {
+              this._handlePlaceCardMouseEnter(offer);
+            }}
+            isNearPlaces={isNearPlaces}
+          />
+        ))}
       </div>
     );
   }
