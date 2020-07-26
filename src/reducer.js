@@ -2,21 +2,22 @@ import mockOffers from './mocks/offers.js';
 import {extend} from './utils/common.js';
 
 
+const filterOffersByCity = (offers, cityName) => {
+  return offers.filter((offer) => {
+    return offer.city.name === cityName;
+  });
+};
+
+
 const initialState = {
-  city: `Amsterdam`,
+  activeCity: mockOffers[0].city.name,
+  activeOffers: filterOffersByCity(mockOffers, mockOffers[0].city.name),
   offers: mockOffers,
 };
 
 const ActionType = {
   SELECT_CITY: `SELECT_CITY`,
-  GET_OFFERS: `GET_OFFERS`,
-};
-
-
-const filterOffersByCity = (offers, city) => {
-  offers.filter((offer) => {
-    return offer.city === city;
-  });
+  SELECT_OFFERS: `SELECT_OFFERS`,
 };
 
 
@@ -26,9 +27,9 @@ const ActionCreator = {
     payload: city,
   }),
 
-  getOffers: (offers, city) => ({
-    type: ActionType.GET_OFFERS,
-    payload: filterOffersByCity(offers, city),
+  selectOffers: (city) => ({
+    type: ActionType.SELECT_OFFERS,
+    payload: filterOffersByCity(mockOffers, city),
   }),
 };
 
@@ -39,7 +40,7 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         city: action.payload,
       });
-    case ActionType.GET_OFFERS:
+    case ActionType.SELECT_OFFERS:
       return extend(state, {
         offers: action.payload,
       });

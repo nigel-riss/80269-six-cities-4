@@ -1,8 +1,10 @@
 import React, {PureComponent} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../reducer.js'; 
 import Main from '../main/main.jsx';
 import Property from '../property/property.jsx';
+import PropTypes from 'prop-types';
 import OfferTypes from '../../types/offer.js';
 
 
@@ -17,7 +19,7 @@ class App extends PureComponent {
     super(props);
 
     this.state = {
-      currentScreen: Screens.MAIN
+      currentScreen: Screens.MAIN,
     };
 
     this._handleCardTitleClick = this._handleCardTitleClick.bind(this);
@@ -34,7 +36,7 @@ class App extends PureComponent {
           </Route>
           <Route exact path="/property">
             <Property
-              offer={offers[2]}
+              offer={offers[0]}
             />
           </Route>
         </Switch>
@@ -43,18 +45,27 @@ class App extends PureComponent {
   }
 
   _renderApp() {
-    const {offers} = this.props;
     const {
       currentOffer,
       currentScreen,
     } = this.state;
 
+    const {
+      activeCity,
+      activeOffers,
+      offers,
+      onCityNameClick,
+    } = this.props;
+
 
     if (currentScreen === Screens.MAIN) {
       return (
         <Main
+          activeCity={activeCity}
+          activeOffers={activeOffers}
           offers={offers}
           onCardTitleClick={this._handleCardTitleClick}
+          onCityNameClick={onCityNameClick}
         />
       );
     }
@@ -84,4 +95,19 @@ App.propTypes = {
 };
 
 
-export default App;
+const mapStateToProps = (state) => ({
+  activeCity: state.activeCity,
+  activeOffers: state.activeOffers,
+  offers: state.offers,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onCityNameClick(cityName) {
+    dispatch(ActionCreator.selectCity(cityName));
+    dispatch(ActionCreator.selectOffers(cityName));
+  }
+});
+
+
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
