@@ -38,11 +38,11 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.SELECT_CITY:
       return extend(state, {
-        city: action.payload,
+        activeCity: action.payload,
       });
     case ActionType.SELECT_OFFERS:
       return extend(state, {
-        offers: action.payload,
+        activeOffers: action.payload,
       });
   }
 

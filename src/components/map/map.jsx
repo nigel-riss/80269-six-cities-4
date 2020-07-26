@@ -69,14 +69,18 @@ class Map extends PureComponent {
     });
 
     this._markers = this.props.offers
-      .map((offer) => {
+      .map((offer) => (
         leaflet
           .marker(offer.location, {icon})
-          .addTo(this._map);
-      });
+          .addTo(this._map)
+      ));
+
+    console.log(this._markers);
   }
 
   _removeMarkers() {
+    console.log(this._markers);
+
     this._markers.forEach((marker) => marker.remove());
     this._markers = null;
   }

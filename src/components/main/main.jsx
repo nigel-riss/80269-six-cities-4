@@ -1,8 +1,10 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import CityList from '../city-list/city-list.jsx';
 import PlaceList from '../place-list/place-list.jsx';
 import Map from '../map/map.jsx';
 import OfferTypes from '../../types/offer.js';
+import {getCityList} from '../../utils/common.js';
 
 
 const MAP_CENTER = [52.38333, 4.9];
@@ -22,6 +24,8 @@ class Main extends PureComponent {
       onCardTitleClick,
       onCityNameClick,
     } = this.props;
+
+    const cities = getCityList(offers);
 
     return (
       <div className="page page--gray page--main">
@@ -51,40 +55,11 @@ class Main extends PureComponent {
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
           <div className="tabs">
-            <section className="locations container">
-              <ul className="locations__list tabs__list">
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Paris</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Cologne</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Brussels</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active">
-                    <span>Amsterdam</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Hamburg</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Dusseldorf</span>
-                  </a>
-                </li>
-              </ul>
-            </section>
+            <CityList
+              activeCity={activeCity}
+              cities={cities}
+              onCityNameClick={onCityNameClick}
+            />
           </div>
           <div className="cities">
             <div className="cities__places-container container">
@@ -122,7 +97,7 @@ class Main extends PureComponent {
                   <Map
                     center={MAP_CENTER}
                     zoom={MAP_ZOOM}
-                    offers={offers}
+                    offers={activeOffers}
                   />
                 </section>
               </div>
