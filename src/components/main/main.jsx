@@ -23,6 +23,12 @@ class Main extends PureComponent {
 
     const cities = getCityList(offers);
 
+    const {
+      latitude,
+      longitude,
+      zoom,
+    } = activeOffers[0].city.location;
+
     return (
       <div className="page page--gray page--main">
         <header className="header">
@@ -61,7 +67,7 @@ class Main extends PureComponent {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{activeOffers.length} places to stay in {activeCity}</b>
+                <b className="places__found">{activeOffers.length} place{activeOffers.length === 1 ? `` : `s`} to stay in {activeCity}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by </span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -91,11 +97,8 @@ class Main extends PureComponent {
               <div className="cities__right-section">
                 <section className="cities__map map">
                   <Map
-                    center={[
-                      activeOffers[0].city.location.latitude,
-                      activeOffers[0].city.location.longitude,
-                    ]}
-                    zoom={activeOffers[0].city.location.zoom}
+                    center={[latitude, longitude]}
+                    zoom={zoom}
                     offers={activeOffers}
                   />
                 </section>
