@@ -19,7 +19,10 @@ class Main extends PureComponent {
 
     this.state = {
       activeSort: Sorting[SORT_POPULAR_INDEX],
+      hoveredOffer: null,
     };
+
+    this._handlePlaceCardMouseEnter = this._handlePlaceCardMouseEnter.bind(this);
   }
 
   render() {
@@ -41,6 +44,7 @@ class Main extends PureComponent {
 
     const {
       activeSort,
+      hoveredOffer,
     } = this.state;
 
     return (
@@ -98,6 +102,7 @@ class Main extends PureComponent {
                   <PlaceList
                     offers={activeSort.func(activeOffers)}
                     onCardTitleClick={onCardTitleClick}
+                    onPlaceCardMouseEnter={this._handlePlaceCardMouseEnter}
                   />
                 </section>
                 <div className="cities__right-section">
@@ -106,7 +111,7 @@ class Main extends PureComponent {
                       center={[latitude, longitude]}
                       zoom={zoom}
                       offers={activeOffers}
-                      // currentOffer={}
+                      hoveredOffer={hoveredOffer}
                     />
                   </section>
                 </div>
@@ -116,6 +121,12 @@ class Main extends PureComponent {
         </main>
       </div>
     );
+  }
+
+  _handlePlaceCardMouseEnter(offer) {
+    this.setState({
+      hoveredOffer: offer,
+    });
   }
 }
 

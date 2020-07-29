@@ -36,7 +36,9 @@ class PlaceCard extends PureComponent {
           `cities__place-card`
         }
         place-card`}
-        onMouseEnter={onCardMouseEnter}
+        onMouseEnter={() => {
+          onCardMouseEnter(offer);
+        }}
       >
         {
           isPremium && (
@@ -99,7 +101,7 @@ class PlaceCard extends PureComponent {
 PlaceCard.propTypes = {
   offer: OfferTypes.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
-  onCardMouseEnter: PropTypes.func.isRequired,
+  onCardMouseEnter: PropTypes.func,
   isNearPlaces: PropTypes.bool,
 };
 
