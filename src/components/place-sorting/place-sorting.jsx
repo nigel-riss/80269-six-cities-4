@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import Sorting from '../../utils/sort.js';
 
 
 class PlaceSorting extends PureComponent {
@@ -15,8 +16,8 @@ class PlaceSorting extends PureComponent {
 
   render() {
     const {
+      activeSort,
       onSortTypeSelect,
-      activeSortType,
     } = this.props;
 
     return (
@@ -27,23 +28,27 @@ class PlaceSorting extends PureComponent {
           tabIndex="0"
           onClick={this._handleSortClick}
         >
-          Popular
+          {activeSort.name}
           <svg className="places__sorting-arrow" width="7" height="4">
             <use xlinkHref="#icon-arrow-select"></use>
           </svg>
         </span>
         <ul className={`places__options places__options--custom ${this.state.isOpened && `places__options--opened`}`}>
-          <li className="places__option places__option--active" tabIndex="0">Popular</li>
-          <li className="places__option" tabIndex="0">Price: low to high</li>
-          <li className="places__option" tabIndex="0">Price: high to low</li>
-          <li className="places__option" tabIndex="0">Top rated first</li>
+          {Sorting.map((sort, i) => (
+            <li
+              key={`${sort.type}-${i}`}
+              className={`places__option
+                ${sort.type === activeSort.type && `places__option--active`}`}
+              tabIndex="0"
+              onClick={() => {
+                onSortTypeSelect(sort);
+                this._handleSortClick();
+              }}
+            >
+              {sort.name}
+            </li>
+          ))}
         </ul>
-        {/* <select className="places__sorting-type" id="places-sorting">
-          <option className="places__option" value="popular" selected="">Popular</option>
-          <option className="places__option" value="to-high">Price: low to high</option>
-          <option className="places__option" value="to-low">Price: high to low</option>
-          <option className="places__option" value="top-rated">Top rated first</option>
-        </select> */}
       </form>
     );
   }
@@ -57,8 +62,12 @@ class PlaceSorting extends PureComponent {
 
 
 PlaceSorting.propTypes = {
-  onSortTypeSelect: PropTypes.func,
-  activeSortType: PropTypes.string,
+  activeSort: PropTypes.shape({
+    type: PropTypes.string,
+    name: PropTypes.string,
+    func: PropTypes.func,
+  }).isRequired,
+  onSortTypeSelect: PropTypes.func.isRequired,
 };
 
 

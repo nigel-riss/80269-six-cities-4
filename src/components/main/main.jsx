@@ -7,11 +7,19 @@ import Map from '../map/map.jsx';
 import NoPlaces from '../no-places/no-places.jsx';
 import OfferTypes from '../../types/offer.js';
 import {getCityList} from '../../utils/common.js';
+import Sorting from '../../utils/sort.js';
+
+
+const SORT_POPULAR_INDEX = 0;
 
 
 class Main extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.state = {
+      activeSort: Sorting[SORT_POPULAR_INDEX],
+    };
   }
 
   render() {
@@ -24,13 +32,16 @@ class Main extends PureComponent {
     } = this.props;
 
     const cities = getCityList(offers);
-    cities.push(`Nowhere`);
 
     const {
       latitude,
       longitude,
       zoom,
     } = activeOffers[0].city.location;
+
+    const {
+      activeSort,
+    } = this.state;
 
     return (
       <div className="page page--gray page--main">
@@ -77,7 +88,12 @@ class Main extends PureComponent {
                   <h2 className="visually-hidden">Places</h2>
                   <b className="places__found">{activeOffers.length} place{activeOffers.length === 1 ? `` : `s`} to stay in {activeCity}</b>
                   <PlaceSorting
-
+                    activeSort={activeSort}
+                    onSortTypeSelect={(sort) => {
+                      this.setState({
+                        activeSort: sort,
+                      });
+                    }}
                   />
                   <PlaceList
                     offers={activeOffers}
@@ -90,6 +106,7 @@ class Main extends PureComponent {
                       center={[latitude, longitude]}
                       zoom={zoom}
                       offers={activeOffers}
+                      // currentOffer={}
                     />
                   </section>
                 </div>
