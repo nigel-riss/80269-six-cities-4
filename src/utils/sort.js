@@ -2,29 +2,38 @@ export default [
   {
     type: `popular`,
     name: `Popular`,
-    func() {
-
+    func(offers) {
+      return offers.slice();
     },
   },
   {
     type: `priceAscending`,
     name: `Price: low to high`,
-    func() {
-
+    func(offers) {
+      const sortedOffers = offers.slice();
+      return sortedOffers.sort((a, b) => {
+        return a.price - b.price;
+      });
     },
   },
   {
     type: `priceDescending`,
     name: `Price: high to low`,
-    func() {
-
+    func(offers) {
+      const sortedOffers = offers.slice();
+      return sortedOffers.sort((a, b) => {
+        return b.price - a.price;
+      });
     },
   },
   {
     type: `byRating`,
     name: `Top rated first`,
-    func() {
-
+    func(offers) {
+      const sortedOffers = offers.slice();
+      return sortedOffers.sort((a, b) => {
+        return b.rating - a.rating;
+      });
     },
   },
 ];

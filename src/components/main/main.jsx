@@ -96,7 +96,7 @@ class Main extends PureComponent {
                     }}
                   />
                   <PlaceList
-                    offers={activeOffers}
+                    offers={activeSort.func(activeOffers)}
                     onCardTitleClick={onCardTitleClick}
                   />
                 </section>
