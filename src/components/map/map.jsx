@@ -70,17 +70,28 @@ class Map extends PureComponent {
   }
 
   _addMarkers() {
-    const icon = leaflet.icon({
+    const {
+      hoveredOffer,
+      offers,
+    } = this.props;
+
+    const commonIcon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 40]
     });
 
-    this._markers = this.props.offers
-      .map((offer) => (
-        leaflet
+    const activeIcon = leaflet.icon({
+      iconUrl: `img/pin-active.svg`,
+      iconSize: [30, 40]
+    });
+
+    this._markers = offers
+      .map((offer) => {
+        const icon = (hoveredOffer && (offer.id === hoveredOffer.id)) ? activeIcon : commonIcon;
+        return leaflet
           .marker(offer.location, {icon})
-          .addTo(this._map)
-      ));
+          .addTo(this._map);
+      });
   }
 
   _removeMarkers() {
@@ -92,8 +103,9 @@ class Map extends PureComponent {
 
 Map.propTypes = {
   center: PropTypes.arrayOf(PropTypes.number).isRequired,
-  zoom: PropTypes.number.isRequired,
+  hoveredOffer: OfferTypes,
   offers: PropTypes.arrayOf(OfferTypes).isRequired,
+  zoom: PropTypes.number.isRequired,
 };
 
 

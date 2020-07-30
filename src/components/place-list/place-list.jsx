@@ -7,8 +7,6 @@ import OfferTypes from '../../types/offer.js';
 class PlaceList extends PureComponent {
   constructor(props) {
     super(props);
-
-    this._handlePlaceCardMouseEnter = this._handlePlaceCardMouseEnter.bind(this);
   }
 
   render() {
@@ -16,6 +14,7 @@ class PlaceList extends PureComponent {
       offers,
       onCardTitleClick,
       isNearPlaces,
+      onPlaceCardMouseEnter,
     } = this.props;
 
     return (
@@ -32,20 +31,12 @@ class PlaceList extends PureComponent {
             onCardTitleClick={() => {
               onCardTitleClick(offer);
             }}
-            onCardMouseEnter={() => {
-              this._handlePlaceCardMouseEnter(offer);
-            }}
+            onCardMouseEnter={onPlaceCardMouseEnter}
             isNearPlaces={isNearPlaces}
           />
         ))}
       </div>
     );
-  }
-
-  _handlePlaceCardMouseEnter(offer) {
-    this.setState({
-      currentOffer: offer,
-    });
   }
 }
 
@@ -53,6 +44,7 @@ class PlaceList extends PureComponent {
 PlaceList.propTypes = {
   offers: PropTypes.arrayOf(OfferTypes).isRequired,
   onCardTitleClick: PropTypes.func,
+  onPlaceCardMouseEnter: PropTypes.func,
   isNearPlaces: PropTypes.bool,
 };
 
