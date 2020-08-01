@@ -14,24 +14,16 @@ const PlaceSortingWrapped = withOpenedList(PlaceSorting);
 
 
 class Main extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hoveredOffer: null,
-    };
-
-    this._handlePlaceCardMouseEnter = this._handlePlaceCardMouseEnter.bind(this);
-  }
-
   render() {
     const {
       activeCity,
       activeOffers,
       activeSort,
+      hoveredItem: hoveredOffer,
       offers,
       onCardTitleClick,
       onCityNameClick,
+      onItemMouseEnter: onPlaceCardMouseEnter,
       onSortTypeSelect,
     } = this.props;
 
@@ -42,10 +34,6 @@ class Main extends PureComponent {
       longitude,
       zoom,
     } = activeOffers[0].city.location;
-
-    const {
-      hoveredOffer,
-    } = this.state;
 
     return (
       <div className="page page--gray page--main">
@@ -98,7 +86,7 @@ class Main extends PureComponent {
                   <PlaceList
                     offers={activeSort.func(activeOffers)}
                     onCardTitleClick={onCardTitleClick}
-                    onPlaceCardMouseEnter={this._handlePlaceCardMouseEnter}
+                    onPlaceCardMouseEnter={onPlaceCardMouseEnter}
                   />
                 </section>
                 <div className="cities__right-section">
@@ -118,21 +106,23 @@ class Main extends PureComponent {
       </div>
     );
   }
-
-  _handlePlaceCardMouseEnter(offer) {
-    this.setState({
-      hoveredOffer: offer,
-    });
-  }
 }
 
 
 Main.propTypes = {
   activeCity: PropTypes.string.isRequired,
   activeOffers: PropTypes.arrayOf(OfferTypes).isRequired,
+  activeSort: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    func: PropTypes.func.isRequired,
+  }).isRequired,
+  hoveredItem: OfferTypes,
   offers: PropTypes.arrayOf(OfferTypes).isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
   onCityNameClick: PropTypes.func.isRequired,
+  onItemMouseEnter: PropTypes.func.isRequired,
+  onSortTypeSelect: PropTypes.func.isRequired,
 };
 
 
