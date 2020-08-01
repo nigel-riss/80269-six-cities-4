@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import CityList from '../city-list/city-list.jsx';
 import PlaceSorting from '../place-sorting/place-sorting.jsx';
+import withOpenedList from '../../hocs/with-opened-list/with-opened-list.js';
 import PlaceList from '../place-list/place-list.jsx';
 import Map from '../map/map.jsx';
 import NoPlaces from '../no-places/no-places.jsx';
@@ -11,6 +12,8 @@ import Sorting from '../../utils/sort.js';
 
 
 const SORT_POPULAR_INDEX = 0;
+
+const PlaceSortingWrapped = withOpenedList(PlaceSorting);
 
 
 class Main extends PureComponent {
@@ -91,7 +94,7 @@ class Main extends PureComponent {
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
                   <b className="places__found">{activeOffers.length} place{activeOffers.length === 1 ? `` : `s`} to stay in {activeCity}</b>
-                  <PlaceSorting
+                  <PlaceSortingWrapped
                     activeSort={activeSort}
                     onSortTypeSelect={(sort) => {
                       this.setState({
