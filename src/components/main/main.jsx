@@ -8,10 +8,7 @@ import Map from '../map/map.jsx';
 import NoPlaces from '../no-places/no-places.jsx';
 import OfferTypes from '../../types/offer.js';
 import {getCityList} from '../../utils/common.js';
-import Sorting from '../../utils/sort.js';
 
-
-const SORT_POPULAR_INDEX = 0;
 
 const PlaceSortingWrapped = withOpenedList(PlaceSorting);
 
@@ -21,7 +18,6 @@ class Main extends PureComponent {
     super(props);
 
     this.state = {
-      activeSort: Sorting[SORT_POPULAR_INDEX],
       hoveredOffer: null,
     };
 
@@ -32,9 +28,11 @@ class Main extends PureComponent {
     const {
       activeCity,
       activeOffers,
+      activeSort,
       offers,
       onCardTitleClick,
       onCityNameClick,
+      onSortTypeSelect,
     } = this.props;
 
     const cities = getCityList(offers);
@@ -46,7 +44,6 @@ class Main extends PureComponent {
     } = activeOffers[0].city.location;
 
     const {
-      activeSort,
       hoveredOffer,
     } = this.state;
 
@@ -96,11 +93,7 @@ class Main extends PureComponent {
                   <b className="places__found">{activeOffers.length} place{activeOffers.length === 1 ? `` : `s`} to stay in {activeCity}</b>
                   <PlaceSortingWrapped
                     activeSort={activeSort}
-                    onSortTypeSelect={(sort) => {
-                      this.setState({
-                        activeSort: sort,
-                      });
-                    }}
+                    onSortTypeSelect={onSortTypeSelect}
                   />
                   <PlaceList
                     offers={activeSort.func(activeOffers)}

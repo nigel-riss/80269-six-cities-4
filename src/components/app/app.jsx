@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {ActionCreator} from '../../reducer.js';
 import Main from '../main/main.jsx';
 import Property from '../property/property.jsx';
+import withActiveSort from '../../hocs/with-active-sort/with-active-sort.js';
 import PropTypes from 'prop-types';
 import OfferTypes from '../../types/offer.js';
 
@@ -12,6 +13,9 @@ const Screens = {
   MAIN: `main`,
   PROPERTY: `property`,
 };
+
+
+const MainWrapped = withActiveSort(Main);
 
 
 class App extends PureComponent {
@@ -60,7 +64,7 @@ class App extends PureComponent {
 
     if (currentScreen === Screens.MAIN) {
       return (
-        <Main
+        <MainWrapped
           activeCity={activeCity}
           activeOffers={activeOffers}
           offers={offers}
