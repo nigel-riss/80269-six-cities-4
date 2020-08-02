@@ -7,12 +7,12 @@ exports[`PlaceList renders correctly 1`] = `
 >
   <article
     className="cities__place-card
-        place-card"
+      place-card"
     onMouseEnter={[Function]}
   >
     <div
       className="cities__image-wrapper
-          place-card__image-wrapper"
+        place-card__image-wrapper"
     >
       <a
         href="#"
@@ -106,12 +106,12 @@ exports[`PlaceList renders correctly 1`] = `
   </article>
   <article
     className="cities__place-card
-        place-card"
+      place-card"
     onMouseEnter={[Function]}
   >
     <div
       className="cities__image-wrapper
-          place-card__image-wrapper"
+        place-card__image-wrapper"
     >
       <a
         href="#"
@@ -205,7 +205,7 @@ exports[`PlaceList renders correctly 1`] = `
   </article>
   <article
     className="cities__place-card
-        place-card"
+      place-card"
     onMouseEnter={[Function]}
   >
     <div
@@ -217,7 +217,7 @@ exports[`PlaceList renders correctly 1`] = `
     </div>
     <div
       className="cities__image-wrapper
-          place-card__image-wrapper"
+        place-card__image-wrapper"
     >
       <a
         href="#"
@@ -311,12 +311,12 @@ exports[`PlaceList renders correctly 1`] = `
   </article>
   <article
     className="cities__place-card
-        place-card"
+      place-card"
     onMouseEnter={[Function]}
   >
     <div
       className="cities__image-wrapper
-          place-card__image-wrapper"
+        place-card__image-wrapper"
     >
       <a
         href="#"
