@@ -1,6 +1,4 @@
-2. main.jsx - вынести в HOC state
-3. place-sorting - вынести в HOC state +
-1. property.jsx - вынести координаты
-4. map - вынести в HOC ref?
+
+4. map - вынести в HOC ref ???
 5. Дописать тесты
-6. Дописать e2e тесты для HOCов
+6. Дописать e2e тесты для HOCов (переместить e2e тесты)
