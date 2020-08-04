@@ -1,6 +1,8 @@
 import {PlaceTypes} from '../const';
 
-export default [
+export default [];
+
+const default1 = [
   {
     id: 1,
     city: {

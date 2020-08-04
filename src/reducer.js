@@ -9,10 +9,14 @@ const filterOffersByCity = (offers, cityName) => {
 };
 
 
-const initialState = {
+const initialState = (mockOffers && mockOffers.length) > 0 ? {
   activeCity: mockOffers[0].city.name,
   activeOffers: filterOffersByCity(mockOffers, mockOffers[0].city.name),
   offers: mockOffers,
+} : {
+  activeCity: ``,
+  activeOffers: [],
+  offers: [],
 };
 
 const ActionType = {
