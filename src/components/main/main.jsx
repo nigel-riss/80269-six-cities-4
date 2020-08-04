@@ -32,7 +32,11 @@ const Main = (props) => {
     latitude,
     longitude,
     zoom,
-  } = activeOffers[0].city.location;
+  } = (activeOffers && activeOffers[0]) ? activeOffers[0].city.location : {
+    latitude: 0,
+    longitude: 0,
+    zoom: 12,
+  };
 
   return (
     <div className="page page--gray page--main">
@@ -59,21 +63,19 @@ const Main = (props) => {
         </div>
       </header>
 
-      <main className="page__main page__main--index">
-        <h1 className="visually-hidden">Cities</h1>
-        <div className="tabs">
-          <CityList
-            activeCity={activeCity}
-            cities={cities}
-            onCityNameClick={onCityNameClick}
-          />
-        </div>
-        <div className="cities">
-          {activeOffers.length === 0 ? (
-            <NoPlaces
+      {activeOffers.length === 0 ? (
+        <NoPlaces/>
+      ) : (
+        <main className="page__main page__main--index">
+          <h1 className="visually-hidden">Cities</h1>
+          <div className="tabs">
+            <CityList
               activeCity={activeCity}
+              cities={cities}
+              onCityNameClick={onCityNameClick}
             />
-          ) : (
+          </div>
+          <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
@@ -99,9 +101,9 @@ const Main = (props) => {
                 </section>
               </div>
             </div>
-          )}
-        </div>
-      </main>
+          </div>
+        </main>
+      )}
     </div>
   );
 };
@@ -109,7 +111,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   activeCity: PropTypes.string.isRequired,
-  activeOffers: PropTypes.arrayOf(OfferTypes).isRequired,
+  activeOffers: PropTypes.arrayOf(OfferTypes),
   activeSort: PropTypes.shape({
     type: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
