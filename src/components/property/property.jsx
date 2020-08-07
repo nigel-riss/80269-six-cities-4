@@ -233,7 +233,7 @@ const Property = (props) => {
 
 
 Property.propTypes = {
-  offer: OfferTypes.isRequired,
+  offer: OfferTypes,
 };
 
 

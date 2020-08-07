@@ -1,4 +1,3 @@
-import mockOffers from './mocks/offers.js';
 import {extend} from './utils/common.js';
 
 
@@ -9,11 +8,7 @@ const filterOffersByCity = (offers, cityName) => {
 };
 
 
-const initialState = (mockOffers && mockOffers.length) > 0 ? {
-  activeCity: mockOffers[0].city.name,
-  activeOffers: filterOffersByCity(mockOffers, mockOffers[0].city.name),
-  offers: mockOffers,
-} : {
+const initialState = {
   activeCity: ``,
   activeOffers: [],
   offers: [],
@@ -22,6 +17,7 @@ const initialState = (mockOffers && mockOffers.length) > 0 ? {
 const ActionType = {
   SELECT_CITY: `SELECT_CITY`,
   SELECT_OFFERS: `SELECT_OFFERS`,
+  LOAD_OFFERS: ``
 };
 
 
@@ -31,10 +27,15 @@ const ActionCreator = {
     payload: city,
   }),
 
-  selectOffers: (city) => ({
+  selectOffers: (city, offers) => ({
     type: ActionType.SELECT_OFFERS,
-    payload: filterOffersByCity(mockOffers, city),
+    payload: filterOffersByCity(offers, city),
   }),
+};
+
+
+const Operation = {
+
 };
 
 
