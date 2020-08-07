@@ -58,10 +58,10 @@ const ActionType = {
 
 
 const ActionCreator = {
-  loadOffers: (offers) => {
+  loadOffers: (rawOffers) => {
     return {
       type: ActionType.LOAD_OFFERS,
-      payload: offers,
+      payload: rawOffers,
     };
   },
 
@@ -70,10 +70,9 @@ const ActionCreator = {
     payload: city,
   }),
 
-  selectOffers: (offers, city) => ({
+  selectOffers: (city) => ({
     type: ActionType.SELECT_OFFERS,
-    // payload: filterOffersByCity(offers, city),
-    payload: filterOffersByCity(offers.map(parseOffer), city),
+    payload: city,
   }),
 };
 
@@ -83,12 +82,8 @@ const Operation = {
     return api.get(`/hotels`)
       .then((response) => {
         dispatch(ActionCreator.loadOffers(response.data));
-
-
-        // TODO change this lately
         dispatch(ActionCreator.selectCity(response.data[0].city.name));
-        dispatch(ActionCreator.selectOffers(getState().offers, getState().activeCity));
-        console.log(getState());
+        dispatch(ActionCreator.selectOffers(getState().activeCity));
       });
   },
 };
@@ -98,7 +93,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.LOAD_OFFERS:
       return extend(state, {
-        offers: action.payload,
+        offers: action.payload.map(parseOffer),
       });
     case ActionType.SELECT_CITY:
       return extend(state, {
@@ -106,7 +101,7 @@ const reducer = (state = initialState, action) => {
       });
     case ActionType.SELECT_OFFERS:
       return extend(state, {
-        activeOffers: action.payload,
+        activeOffers: filterOffersByCity(state.offers, action.payload),
       });
     default:
       return state;
