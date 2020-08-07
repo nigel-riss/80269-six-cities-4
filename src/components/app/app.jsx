@@ -32,6 +32,7 @@ class App extends PureComponent {
 
   render() {
     const {offers} = this.props;
+    console.log(offers);
 
     return (
       <BrowserRouter>

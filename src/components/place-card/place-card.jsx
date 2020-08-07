@@ -13,14 +13,13 @@ const PlaceCard = (props) => {
 
   const {
     isPremium,
-    photos,
+    previewImage,
     price,
     rating,
     title,
     type,
   } = offer;
 
-  const photo = photos[0];
   const ratingWidth = `${Math.round(rating) * 20}%`;
 
   return (
@@ -52,7 +51,7 @@ const PlaceCard = (props) => {
         place-card__image-wrapper`}
       >
         <a href="#">
-          <img className="place-card__image" src={`img/${photo}`} width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src={`img/${previewImage}`} width="260" height="200" alt="Place image" />
         </a>
       </div>
       <div className="place-card__info">

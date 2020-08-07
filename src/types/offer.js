@@ -5,12 +5,12 @@ import {PlaceTypes} from '../const.js';
 export default PropTypes.shape({
   bedrooms: PropTypes.number.isRequired,
   location: PropTypes.arrayOf(PropTypes.number).isRequired,
-  descriptionLines: PropTypes.arrayOf(PropTypes.string).isRequired,
+  description: PropTypes.string.isRequired,
   features: PropTypes.arrayOf(PropTypes.string).isRequired,
   host: PropTypes.shape({
     name: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired,
-    inPro: PropTypes.bool.isRequired,
+    isPro: PropTypes.bool.isRequired,
   }).isRequired,
   isPremium: PropTypes.bool.isRequired,
   maxAdults: PropTypes.number.isRequired,

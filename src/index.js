@@ -4,7 +4,7 @@ import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import App from './components/app/app.jsx';
-import {reducer} from './reducer.js';
+import {reducer, Operation} from './reducer.js';
 import {createAPI} from './api.js';
 
 
@@ -28,5 +28,7 @@ const init = () => {
       document.querySelector(`#root`)
   );
 };
+
+store.dispatch(Operation.loadOffers());
 
 init();

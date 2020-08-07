@@ -92,12 +92,12 @@ const Main = (props) => {
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
-                  <Map
+                  {/* <Map
                     center={[latitude, longitude]}
                     zoom={zoom}
                     offers={activeOffers}
                     hoveredOffer={hoveredOffer}
-                  />
+                  /> */}
                 </section>
               </div>
             </div>

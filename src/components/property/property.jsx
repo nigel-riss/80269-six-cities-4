@@ -13,7 +13,7 @@ const Property = (props) => {
   const {
     bedrooms,
     city,
-    descriptionLines,
+    description,
     features,
     host,
     isPremium,
@@ -34,7 +34,7 @@ const Property = (props) => {
   const {
     name: hostName,
     avatar,
-    inPro,
+    isPro,
   } = host;
 
   const ratingWidth = `${Math.round(rating) * 20}%`;
@@ -136,7 +136,7 @@ const Property = (props) => {
               <div className="property__host">
                 <h2 className="property__host-title">Meet the host</h2>
                 <div className="property__host-user user">
-                  <div className={`property__avatar-wrapper ${inPro ? `property__avatar-wrapper--pro` : ``} user__avatar-wrapper`}>
+                  <div className={`property__avatar-wrapper ${isPro ? `property__avatar-wrapper--pro` : ``} user__avatar-wrapper`}>
                     <img className="property__avatar user__avatar" src={`img/${avatar}`} width="74" height="74" alt="Host avatar"/>
                   </div>
                   <span className="property__user-name">
@@ -144,13 +144,7 @@ const Property = (props) => {
                   </span>
                 </div>
                 <div className="property__description">
-                  {descriptionLines.map((line, i) => {
-                    return (
-                      <p className="property__text" key={`${line}-${i}`}>
-                        {line}
-                      </p>
-                    );
-                  })}
+                  {description}
                 </div>
               </div>
               <section className="property__reviews reviews">
