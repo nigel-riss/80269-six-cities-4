@@ -21,7 +21,7 @@ class Map extends PureComponent {
 
   componentDidUpdate() {
     this._removeMarkers();
-    this._addMarkers();
+    // this._addMarkers();
 
     const {
       center,
@@ -51,6 +51,8 @@ class Map extends PureComponent {
       zoom,
     } = this.props;
 
+    console.log(`map data`, center, zoom, this.props);
+
     this._map = leaflet.map(this._mapRef.current, {
       center,
       zoom,
@@ -66,7 +68,7 @@ class Map extends PureComponent {
       })
       .addTo(this._map);
 
-    this._addMarkers();
+    // this._addMarkers();
   }
 
   _addMarkers() {

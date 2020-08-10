@@ -23,9 +23,9 @@ const parseOffer = (offer) => ({
   isFavorite: offer[`is_favorite`],
   isPremium: offer[`is_premium`],
   location: {
-    latitude: offer[`latitude`],
-    longitude: offer[`longitude`],
-    zoom: offer[`zoom`],
+    latitude: offer[`location`][`latitude`],
+    longitude: offer[`location`][`longitude`],
+    zoom: offer[`location`][`zoom`],
   },
   maxAdults: offer[`max_adults`],
   photos: offer[`images`],
